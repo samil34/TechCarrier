@@ -12,7 +12,7 @@ const RootStack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName='SignUpScreen'>
+      <RootStack.Navigator initialRouteName='LoadingScreen'>
         <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
         <RootStack.Screen name="LoginScreen" component={LoginScreen} />
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
