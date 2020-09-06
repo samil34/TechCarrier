@@ -4,17 +4,16 @@ import { Platform, Text, View, SafeAreaView, ScrollView, Keyboard, Picker, Style
 import { Button, Input } from '../../components';
 import { Icon } from 'native-base';
 
-
+import { addItem } from '../../redux/actions';
+import { connect } from 'react-redux';
 
 const HomeSubmit = (props) => {
 
 
-    const [kategori, setKategori] = useState('')
+    const [kategori, setKategori] = useState('Teknoloji')
     const [aciklama, setAciklama] = useState('')
     const [link, setLink] = useState('')
 
-
-    const [selectedValue, setSelectedValue] = useState("Teknoloji");
 
 
     return (
@@ -27,7 +26,14 @@ const HomeSubmit = (props) => {
                     // loading={props.loading}
                     textStyle={{ fontSize: 16 }}
                     onPress={() => {
-
+                        addItem({
+                            "user":{"name":"Mukaddes", "rozet":"Rozet ismi 3. gun"},
+                            "dsc":aciklama,
+                            "category":kategori,
+                            "link":"https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/",
+                            "likes":["eren","onur","mukaddes"],
+                            "comments":["eren","onur","mukaddes"]
+                        })
                     }}
                     style={{ width: '20%', height: 35 }}
                 />
@@ -40,9 +46,9 @@ const HomeSubmit = (props) => {
 
                 <View style={styles.container}>
                     <Picker
-                        selectedValue={selectedValue}
+                        selectedValue={kategori}
                         style={{ height: 50, width: 145 }}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                        onValueChange={(kategori, itemIndex) => setKategori(kategori)}
                     >
                         <Picker.Item label="Teknoloji" value="Teknoloji" />
                         <Picker.Item label="Girişimcilik" value="Girişimcilik" />
@@ -61,6 +67,7 @@ const HomeSubmit = (props) => {
                         placeholderTextColor={"#9E9E9E"}
                         numberOfLines={30}
                         multiline={true}
+                        onChangeText= {(aciklama)=>setAciklama(aciklama)}
                     />
 
                 </View>
@@ -77,6 +84,7 @@ const HomeSubmit = (props) => {
                         placeholderTextColor={"#9E9E9E"}
                         numberOfLines={10}
                         multiline={true}
+                        onChangeText= {(link)=>setLink(link)}
                     />
 
                 </View>
@@ -119,4 +127,9 @@ const styles = StyleSheet.create({
 });
 
 
-export default HomeSubmit;
+const mapStateToProps = ({ listResponse }) => {
+    const { list } = listResponse;
+    return { list };
+};
+
+export default connect(mapStateToProps, { addItem })(HomeSubmit);

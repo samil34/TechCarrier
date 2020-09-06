@@ -1,34 +1,24 @@
-import React from 'react';
+import  * as React from 'react';
+import { useEffect } from 'react';
 import { Text, View, StyleSheet, FlatList } from 'react-native';
 import { Fab, Icon } from 'native-base';
-import { connect } from 'react-redux';
 
 import { Button } from '../../components';
 import { colors } from '../../style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-
+import { connect } from 'react-redux';
+import { getList } from '../../redux/actions';
 
 
 const HomeScreen = (props) => {
 
+    useEffect(() => {
+        props.getList()
+    }, []);
 
-
-
-    return (
-
-
-        <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
-
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
-                <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
-                <Text style={{ color: colors.main, fontSize: 16 }}>Home</Text>
-                <Text >Logo</Text>
-
-            </View>
-
-
-            <View style={styles.item}>
+    const renderItem = ({item}) => (
+        <View style={styles.item}>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
 
@@ -42,8 +32,8 @@ const HomeScreen = (props) => {
                         </TouchableOpacity>
 
                         <View style={{ justifyContent: 'center' }}>
-                            <Text>  Ahmet Sefa</Text>
-                            <Text>  rozet ismi . 1 gün</Text>
+                            <Text>  {item.user.name}</Text>
+                            <Text>  {item.user.rozet}</Text>
                         </View>
 
 
@@ -52,7 +42,7 @@ const HomeScreen = (props) => {
 
 
                     <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 10, backgroundColor: '#a9d1f1', width: '25%', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text>Girişimcilik</Text>
+                        <Text>{item.category}</Text>
                     </View>
 
                 </View>
@@ -60,18 +50,18 @@ const HomeScreen = (props) => {
 
 
                 <View style={{ marginTop: 15, marginBottom: 15 }}>
-                    <Text>Stockholm merkezli müzik veri akışı ve podcast servisi Spotify’ın piyasa değeri son üç ayda iki katından fazla artarak 50 milyar dolara yaklaştı. 23 Haziran’da New York borsasında hisse başına 241,99 dolar olmak üzere toplam 44,96 milyar dolar piyasa değerine ulaşan şirket, son zamanlarda podcast alanında yaptığı yatırımlarla adından sıkça söz ettirmişti.</Text>
+                  <Text>{item.dsc}</Text>
 
                 </View>
 
                 <View style={{ marginTop: 10, marginBottom: 10 }}>
-                    <Text style={{ color: '#0087d1' }}> https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/ </Text>
+                    <Text style={{ color: '#0087d1' }}> {item.link} </Text>
 
                 </View>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
-                    <Text>55</Text>
-                    <Text>5 yorum</Text>
+                    <Text>{item.likes.length}</Text>
+                    <Text>{item.comments.length} yorum</Text>
                 </View>
 
                 <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
@@ -83,6 +73,45 @@ const HomeScreen = (props) => {
 
 
             </View>
+    );
+
+    return (
+
+
+        <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
+
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
+                <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
+                <Text style={{ color: colors.main, fontSize: 16 }}>Home</Text>
+                <Text >Logo</Text>
+
+            </View>
+
+            <FlatList
+                style={{ flex: 1 }}
+                data={props.list}
+                renderItem={renderItem}
+                keyExtractor={item => item.name}
+                ListEmptyComponent={() => {
+                    return (
+                        <View style={{
+                        alignItems: 'center',
+                        marginTop: 20,
+                        height: 300,
+                        justifyContent: 'center'
+                        }}>
+                            <Text
+                                style={{ fontSize: 15, marginBottom: 30 }}
+                            >
+                            List is empty now. Start adding tasks! 
+                            </Text>
+                        </View>
+                    )
+                }}
+            />
+
+
+            
 
 
 
@@ -92,7 +121,7 @@ const HomeScreen = (props) => {
                 style={{ backgroundColor: colors.main }}
                 position="bottomRight"
                 onPress={() => { props.navigation.navigate('HomeSubmit') }}>
-                <Icon name="pencil" type='FontAwesome' style={{ color: 'white' }} />
+                <Icon name="plus" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
             </Fab>
         </View>
 
@@ -120,11 +149,14 @@ const styles = StyleSheet.create({
 
     },
 
-    kategori: {
-
-    }
-
-
+    
 });
-export default HomeScreen;
+
+
+const mapStateToProps = ({ listResponse }) => {
+    const { list } = listResponse;
+    return { list };
+};
+
+export default connect(mapStateToProps, { getList })(HomeScreen);
 
