@@ -17,7 +17,19 @@ function App() {
         <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
         <RootStack.Screen name="LoginScreen" component={LoginScreen} />
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <RootStack.Screen name="HomeScreen" component={HomeScreen} />
+
+
+        <RootStack.Screen 
+        name="HomeScreen" 
+        component={HomeScreen}
+        options={({ navigation, route }) => ({
+          title: 'Submit',
+          headerShown: false
+      })}
+        />
+
+
+        
         <RootStack.Screen 
            name="HomeSubmit" 
            component={HomeSubmit}
