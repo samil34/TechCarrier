@@ -67,6 +67,7 @@ const HomeSubmit = (props) => {
                         placeholderTextColor={"#9E9E9E"}
                         numberOfLines={30}
                         multiline={true}
+                        autoFocus
                         onChangeText= {(aciklama)=>setAciklama(aciklama)}
                     />
 

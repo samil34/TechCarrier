@@ -7,6 +7,11 @@ import LoginScreen from '../src/routers/Auth/LoginScreen';
 import SignUpScreen from '../src/routers/Auth/SignUpScreen';
 import HomeScreen from '../src/routers/Home/HomeScreen';
 import HomeSubmit from '../src/routers/Submit/HomeSubmit';
+import ProfileScreen from '../src/routers/Profile/ProfileScreen';
+import Settings from '../src/routers/Profile/Settings';
+import Edit from '../src/routers/Profile/Edit';
+import Biyografi from '../src/routers/Profile/Biyografi';
+
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -22,10 +27,45 @@ function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName='HomeScreen'>
+        <RootStack.Navigator initialRouteName='ProfileScreen'>
           <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
           <RootStack.Screen name="LoginScreen" component={LoginScreen} />
           <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+          <RootStack.Screen 
+             name="ProfileScreen" 
+             component={ProfileScreen}
+             options={({ navigation, route }) => ({
+              title: 'Submit',
+              headerShown: false
+          })}
+             />
+
+<RootStack.Screen 
+             name="Edit" 
+             component={Edit}
+             options={({ navigation, route }) => ({
+              title: 'Edit',
+              headerShown: false
+          })}
+             />
+
+<RootStack.Screen 
+             name="Settings" 
+             component={Settings}
+             options={({ navigation, route }) => ({
+              title: 'Settings',
+              headerShown: false
+          })}
+             />
+
+<RootStack.Screen 
+             name="Biyografi" 
+             component={Biyografi}
+             options={({ navigation, route }) => ({
+              title: 'Biyografi',
+              headerShown: false
+          })}
+             />
 
 
           <RootStack.Screen 

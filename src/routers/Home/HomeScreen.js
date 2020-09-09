@@ -1,11 +1,11 @@
 import  * as React from 'react';
 import { useEffect } from 'react';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { Fab, Icon } from 'native-base';
 
 import { Button } from '../../components';
 import { colors } from '../../style';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 import { connect } from 'react-redux';
 import { getList } from '../../redux/actions';
@@ -16,6 +16,8 @@ const HomeScreen = (props) => {
     useEffect(() => {
         props.getList()
     }, []);
+
+    
 
     const renderItem = ({item}) => (
         <View style={styles.item}>
