@@ -52,7 +52,7 @@ const ProfileScreen = (props) => {
 
                     </View>
 
-                    <View style={{ flex: 0.3, backgroundColor: '#0087d1', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 20, marginBottom: 20 }} >
+                    <View style={{ flex: 0.3, backgroundColor: '#0087d1', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 50, marginBottom: 20 }} >
                         <TouchableOpacity style={{ marginLeft: 35, alignItems: 'center' }}>
                             <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }} >15</Text>
                             <Text style={{ fontSize: 15, color: 'white' }} >Gönderiler</Text>
