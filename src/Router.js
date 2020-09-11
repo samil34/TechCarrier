@@ -12,6 +12,10 @@ import Settings from '../src/routers/Profile/Settings';
 import Edit from '../src/routers/Profile/Edit';
 import Biyografi from '../src/routers/Profile/Biyografi';
 
+import OnlineCourse from '../src/routers/Home/OnlineCourse';
+import OnlineEvents from '../src/routers/Home/OnlineEvents';
+import OrderContent from '../src/routers/Home/OrderContent';
+
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -27,7 +31,8 @@ function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName='ProfileScreen'>
+        <RootStack.Navigator initialRouteName='OrderContent'>
+
           <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
           <RootStack.Screen name="LoginScreen" component={LoginScreen} />
           <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
@@ -72,10 +77,35 @@ function App() {
           name="HomeScreen" 
           component={HomeScreen}
           options={({ navigation, route }) => ({
-            title: 'Submit',
+           
             headerShown: false
         })}
           />
+
+<RootStack.Screen 
+          name="OnlineCourse" 
+          component={OnlineCourse}
+          options={({ navigation, route }) => ({
+            headerShown: false
+        })}
+          />
+
+<RootStack.Screen 
+          name="OnlineEvents" 
+          component={OnlineEvents}
+          options={({ navigation, route }) => ({
+            headerShown: false
+        })}
+          />
+
+<RootStack.Screen 
+          name="OrderContent" 
+          component={OrderContent}
+          options={({ navigation, route }) => ({
+            headerShown: false
+        })}
+          />
+
 
 
           
