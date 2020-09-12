@@ -31,7 +31,7 @@ function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName='OrderContent'>
+        <RootStack.Navigator initialRouteName='HomeScreen'>
 
           <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
           <RootStack.Screen name="LoginScreen" component={LoginScreen} />
