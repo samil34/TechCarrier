@@ -8,5 +8,5 @@ const HelpScreen = ({
         <Text>HelpScreen</Text>
     </View>
 );
-
+ 
 export default HelpScreen;

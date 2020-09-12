@@ -1,3 +1,5 @@
+//iptal olacak
+
 import React from 'react';
 import { Text, View,StyleSheet,TouchableOpacity,FlatList,SafeAreaView } from 'react-native';
 
