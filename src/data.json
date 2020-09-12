@@ -1,0 +1,18 @@
+[
+    {
+        "user":{"name":"Eren Tanrıverdioğlu", "rozet":"Pro . 1 gun"},
+        "dsc":"Stockholm merkezli müzik veri akışı ve podcast servisi Spotify’ın piyasa değeri son üç ayda iki katından fazla artarak 50 milyar dolara yaklaştı. 23 Haziran’da New York borsasında hisse başına 241,99 dolar olmak üzere toplam 44,96 milyar dolar piyasa değerine ulaşan şirket, son zamanlarda podcast alanında yaptığı yatırımlarla adından sıkça söz ettirmişti.",
+        "category":"Girisimcilik",
+        "link":"https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/",
+        "likes":["samil","mukaddes"],
+        "comments":["samil","mukaddes","onur","ali"]
+    },
+    {
+        "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
+        "dsc":"Stockholm merkezli müzik veri akışı ve podcast servisi Spotify’ın piyasa değeri son üç ayda iki katından fazla artarak 50 milyar dolara yaklaştı. 23 Haziran’da New York borsasında hisse başına 241,99 dolar olmak üzere toplam 44,96 milyar dolar piyasa değerine ulaşan şirket, son zamanlarda podcast alanında yaptığı yatırımlarla adından sıkça söz ettirmişti.",
+        "category":"Girisimcilik",
+        "link":"https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/",
+        "likes":["eren","onur","mukaddes"],
+        "comments":["eren","onur"]
+    }
+]

@@ -6,9 +6,7 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import Home from '../Home/HomeScreen';
 import MostLike from '../MostLiked/MostLikedPage';
 import Icon from 'react-native-ionicons';
-import OnlineEvents from '../OnlineEvents/OnlineEvents';
 import OnlineCourses from '../OnlineCourses/OnlineCourses';
-import OtherContent from '../OtherContent/OtherContent';
 import AskedQuestions from '../AskedQuestions/AskedQuestions';
 import HelpCenter from '../HelpCenter/HelpCenter';
 import SettingsAndPrivacy from '../SettingsAndPrivacy/SettingsAndPrivacy';
@@ -73,16 +71,11 @@ const menu = (navigation) => {
   )
 }
 const DrawerStack = createDrawerNavigator();
-const CustomDrawerComponent=()=>{
-  <View><Text>djnmckd</Text></View>
-}
 const DrawerStackScreen = () => {
   return (
     <DrawerStack.Navigator>
       <DrawerStack.Screen name="Ana Sayfa" component={bottomTabNavigator} />
-      <DrawerStack.Screen name="Online Etkinlikler" component={OnlineEvents} />
       <DrawerStack.Screen name="Online Kurslar" component={OnlineCourses} />
-      <DrawerStack.Screen name="Diğer İçerikler" component={OtherContent} />
       <DrawerStack.Screen
         name="İstek ve Öneriler" options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
