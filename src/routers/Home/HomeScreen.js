@@ -17,8 +17,6 @@ const HomeScreen = (props) => {
         props.getList()
     }, []);
 
-    
-
     const renderItem = ({item}) => (
         <View style={styles.item}>
 
@@ -29,7 +27,6 @@ const HomeScreen = (props) => {
 
                             <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
                                 <Text>foto</Text>
-
                             </View>
                         </TouchableOpacity>
 
@@ -93,7 +90,7 @@ const HomeScreen = (props) => {
                 style={{ flex: 1 }}
                 data={props.list}
                 renderItem={renderItem}
-                keyExtractor={item => item.name}
+                keyExtractor={item => item.id}
                 ListEmptyComponent={() => {
                     return (
                         <View style={{
@@ -105,7 +102,7 @@ const HomeScreen = (props) => {
                             <Text
                                 style={{ fontSize: 15, marginBottom: 30 }}
                             >
-                            List is empty now. Start adding tasks! 
+                            List is empty now. Start adding tasks!
                             </Text>
                         </View>
                     )
@@ -113,7 +110,7 @@ const HomeScreen = (props) => {
             />
 
 
-            
+
 
 
 
@@ -151,7 +148,7 @@ const styles = StyleSheet.create({
 
     },
 
-    
+
 });
 
 
@@ -161,4 +158,3 @@ const mapStateToProps = ({ listResponse }) => {
 };
 
 export default connect(mapStateToProps, { getList })(HomeScreen);
-
