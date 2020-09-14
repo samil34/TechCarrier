@@ -80,7 +80,8 @@ const HomeScreen = (props) => {
         <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
 
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
-                <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
+               {/* <Icon style={{ color: 'black', fontSize: 16 }}>kişi foto/</Icon> */}
+                <Icon name="user" type='FontAwesome' style={{ fontSize: 30, color: 'black' }} />
                 <Text style={{ color: colors.main, fontSize: 16 }}>Home</Text>
                 <Text >Logo</Text>
 
@@ -120,7 +121,7 @@ const HomeScreen = (props) => {
                 style={{ backgroundColor: colors.main }}
                 position="bottomRight"
                 onPress={() => { props.navigation.navigate('HomeSubmit') }}>
-                <Icon name="plus" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
+                <Icon name="pencil" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
             </Fab>
         </View>
 
