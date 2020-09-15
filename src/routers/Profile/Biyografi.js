@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Text, View, TextInput } from 'react-native';
 
 const UselessTextInput = (props) => {
+ 
+    console.log('değerler : ', props.value);
+
     return (
         <TextInput
         style={{fontSize:16}}
@@ -15,7 +18,7 @@ const UselessTextInput = (props) => {
 }
 
 const Biyografi = (props) => {
-    const [value, onChangeText] = React.useState('');
+    const [biyo, setBiyo] = useState('selam');
 
     // If you type something in the text box that is a color, the background will change to that
     // color.
@@ -29,18 +32,29 @@ const Biyografi = (props) => {
             }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 15, borderColor: 'gray', borderBottomWidth:0.5,backgroundColor:'#f5f5f5' }}>
 
-                <Text onPress={() => { props.navigation.navigate('Edit') }} style={{ color: 'black', fontSize: 15 }}>İptal</Text>
+                <Text onPress={() => { props.navigation.push('Edit') }} style={{ color: 'black', fontSize: 15 }}>İptal</Text>
                 <Text style={{ color: 'black', fontSize: 15 }}> Biyografi  </Text>
-                <Text onPress={() => { }} style={{ color: 'black', fontSize: 15 }}>Kaydet</Text>
+                <Text 
+                onPress={() => {
+                   // const params = {biyo}
+                   // props.(params)
+                 }} 
+                 style={{ 
+                     color: 'black', 
+                     fontSize: 15
+                      }}>Kaydet</Text>
 
             </View>
 
 
             <UselessTextInput
+
+            style= {{marginLeft: 10,fontSize:15}}
                 multiline
+                
                 numberOfLines={5}
-                onChangeText={text => onChangeText(text)}
-                value={value}
+                onChangeText={(biyo) => setBiyo(biyo)}
+                value={biyo}
             />
 
 

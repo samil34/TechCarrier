@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 
 import { colors } from '../../style';
-
+import { Fab, Icon } from 'native-base';
 
 
 const DATA = [
@@ -14,15 +14,6 @@ const DATA = [
         link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
         likes: ["eren", "onur", "mukaddes"],
         comments: ["samil", "mukaddes", "onur", "ali", "veli"]
-    },
-    {
-        user: { name: 'Eren ', rozet: 'Yeni' },
-        date: '12 sa',
-        category: 'React-native  ',
-        aciklama: 'kurs için bilgi ',
-        link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
-        likes: ["eren", "onur", "mukaddes"],
-        comments: ["samil", "mukaddes", "onur", "ali"]
     }
 ];
 
@@ -35,9 +26,9 @@ const renderItem = ({ item },props) => (
 
             <View>
                 <TouchableOpacity 
-                 style={{ flexDirection: 'row' }}
-                 onPress = {()=> {props.navigation.navigate('ProfileScreen')}}
-                 >
+                style={{ flexDirection: 'row' }}
+                onPress={() => { props.navigation.push('ProfileScreen') }}
+                >
 
                     <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
                         <Text>foto</Text>
@@ -55,8 +46,8 @@ const renderItem = ({ item },props) => (
 
             <View style={{
                 borderWidth: 0.6,
-               // marginVertical: 2,
-               // marginHorizontal: 1,
+                marginVertical: 2,
+                marginHorizontal: 1,
                 padding: 5,
                 borderRadius: 10,
                 backgroundColor: '#a9d1f1',
@@ -92,27 +83,26 @@ const renderItem = ({ item },props) => (
             <Text>Kaydet</Text>
         </View>
 
+        <Text>sil düzenle </Text>
+
 
 
     </View>
 
 )
 
-const SearchCategory = (props) => {
+const DetailScreen = (props) => {
 
-       return (
+
+     
+    return (
 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
 
-            <View style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: 20
-            }}>
-                <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
-                <Text style={{ color: colors.main, fontSize: 16 }}>Girişimcilik</Text>
-                <Text >Logo</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 20 }}>
+                <Text  onPress={() => props.navigation.pop()} style={{ color: 'black', fontSize: 16 }}>Geri</Text>
+                <Text style={{ color: colors.main, fontSize: 16,marginLeft:'40%' }}>Posts</Text>
+                
 
             </View>
 
@@ -133,9 +123,9 @@ const SearchCategory = (props) => {
                             <Text
                                 style={{ fontSize: 15, marginBottom: 30 }}
                             >
-                                List is empty now. Start adding tasks!
+                               Herhangi bir gönderiminiz yok!
                             </Text>
-
+                            
                         </View>
                     )
                 }}
@@ -146,7 +136,7 @@ const SearchCategory = (props) => {
 
 
         </SafeAreaView>
-    );
+    )
 }
 
 
@@ -168,4 +158,7 @@ const styles = StyleSheet.create({
 
 });
 
-export default SearchCategory;
+export default DetailScreen;
+
+
+

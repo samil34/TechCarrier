@@ -22,26 +22,31 @@ const HomeScreen = (props) => {
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
 
-                    <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity>
+                       <View>
+                       <TouchableOpacity
+                        style={{ flexDirection: 'row' }}
+                         onPress={() => { props.navigation.navigate('ProfileScreen') }}
+                        >
 
                             <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
                                 <Text>foto</Text>
                             </View>
-                        </TouchableOpacity>
+                        
 
                         <View style={{ justifyContent: 'center' }}>
                             <Text>  {item.user.name}</Text>
                             <Text>  {item.user.rozet}</Text>
                         </View>
 
-
-                    </View>
+                        </TouchableOpacity>
+                       </View>
+                       
+                    
 
 
 
                     <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 10, backgroundColor: '#a9d1f1', width: '25%', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text>{item.category}</Text>
+                     <Text>{item.category}</Text>
                     </View>
 
                 </View>

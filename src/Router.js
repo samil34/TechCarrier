@@ -21,6 +21,14 @@ import MostLikedPage from '../src/routers/MostLiked/MostLikedPage';
 import Search from '../src/routers/Search/Search';
 import FreeLessons from '../src/routers/Home/FreeLessons';
 import SearchCategory from '../src/routers/Search/SearchCategory';
+import DetailScreen from '../src/routers/Profile/DetailScreen';
+import Gonderiler from '../src/routers/Profile/Gonderiler';
+import ProfileScreens from '../src/routers/Profile/ProfileScreens';
+import Rozet from '../src/routers/Profile/Rozet';
+import Kaydedilenler from '../src/routers/Profile/Kaydedilenler';
+
+
+
 
 const RootStack = createStackNavigator();
 
@@ -30,20 +38,72 @@ function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="Search">
+        <RootStack.Navigator initialRouteName="ProfileScreens">
           <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
           <RootStack.Screen name="LoginScreen" component={LoginScreen} />
           <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+
           <RootStack.Screen
-            name="ProfileScreen"
+            name="ProfileScreen" //silinecek
             component={ProfileScreen}
             options={({ navigation, route }) => ({
               title: 'Submit',
               headerShown: false,
             })}
           />
-          <RootStack.Screen name="TabsComponent" component={TabsComponent} />
+
           <RootStack.Screen
+            name="ProfileScreens"
+            component={ProfileScreens}
+            options={({ navigation, route }) => ({
+              title: 'Submit',
+              headerShown: false,
+            })}
+          />
+
+
+
+
+          <RootStack.Screen
+            name="Gonderiler"
+            component={Gonderiler}
+            options={({ navigation, route }) => ({
+              title: 'Submit',
+              headerShown: false,
+            })}
+          />
+
+<RootStack.Screen
+            name="Rozet"
+            component={Rozet}
+            options={({ navigation, route }) => ({
+              title: 'Submit',
+              headerShown: false,
+            })}
+          />
+
+<RootStack.Screen
+            name="Kaydedilenler"
+            component={Kaydedilenler}
+            options={({ navigation, route }) => ({
+              title: 'Submit',
+              headerShown: false,
+            })}
+          />
+
+
+
+
+
+
+          <RootStack.Screen name="TabsComponent" component={TabsComponent} />
+
+
+          
+          
+
+          <RootStack.Screen
+          
             name="Edit"
             component={Edit}
             options={({ navigation, route }) => ({
@@ -61,14 +121,34 @@ function App() {
             })}
           />
 
-          <RootStack.Screen
+<RootStack.Screen
             name="Biyografi"
             component={Biyografi}
             options={({ navigation, route }) => ({
-              title: 'Biyografi',
+              title: 'Settings',
               headerShown: false,
             })}
           />
+
+
+          
+
+          
+
+
+          <RootStack.Screen
+            name="DetailScreen"
+            component={DetailScreen}
+            options={({ navigation, route }) => ({
+              title: 'DetailScreen',
+              headerShown: false,
+            })}
+          />
+
+          
+
+         
+
 
           <RootStack.Screen
             name="HomeScreen"
@@ -116,7 +196,7 @@ function App() {
             })}
           />
 
-<RootStack.Screen
+          <RootStack.Screen
             name="FreeLessons"
             component={FreeLessons}
             options={({ navigation, route }) => ({
