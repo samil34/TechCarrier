@@ -95,7 +95,7 @@ const renderItem = ({ item }) => (
 
 )
 
-const MostLikedPage = (props) => {
+const SearchCategory = (props) => {
 
        return (
 
@@ -108,7 +108,7 @@ const MostLikedPage = (props) => {
                 padding: 20
             }}>
                 <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
-                <Text style={{ color: colors.main, fontSize: 16 }}>Online Eğitimler</Text>
+                <Text style={{ color: colors.main, fontSize: 16 }}>Girişimcilik</Text>
                 <Text >Logo</Text>
 
             </View>
@@ -165,4 +165,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default MostLikedPage;
+export default SearchCategory;

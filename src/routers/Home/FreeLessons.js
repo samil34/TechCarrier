@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 
 import { colors } from '../../style';
-
+import { Fab, Icon } from 'native-base';
 
 
 const DATA = [
@@ -50,19 +50,7 @@ const renderItem = ({ item }) => (
 
             </View>
 
-            <View style={{
-                borderWidth: 0.6,
-                marginVertical: 2,
-                marginHorizontal: 1,
-                padding: 5,
-                borderRadius: 10,
-                backgroundColor: '#a9d1f1',
-                width: '25%',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
-                <Text >{item.category}</Text>
-            </View>
+            
 
         </View>
 
@@ -85,7 +73,6 @@ const renderItem = ({ item }) => (
 
         <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
             <Text>Beğen </Text>
-            <Text>Yorum yap</Text>
             <Text>Kaydet</Text>
         </View>
 
@@ -95,18 +82,17 @@ const renderItem = ({ item }) => (
 
 )
 
-const MostLikedPage = (props) => {
 
-       return (
+
+const FreeLessons = (props) => {
+
+
+
+    return (
 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
 
-            <View style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: 20
-            }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
                 <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
                 <Text style={{ color: colors.main, fontSize: 16 }}>Online Eğitimler</Text>
                 <Text >Logo</Text>
@@ -132,7 +118,7 @@ const MostLikedPage = (props) => {
                             >
                                 List is empty now. Start adding tasks!
                             </Text>
-
+                            
                         </View>
                     )
                 }}
@@ -140,6 +126,16 @@ const MostLikedPage = (props) => {
 
 
 
+
+
+
+            <Fab
+                containerStyle={{}}
+                style={{ backgroundColor: colors.main }}
+                position="bottomRight"
+                onPress={() => { props.navigation.navigate('HomeSubmit') }}>
+                <Icon name="plus" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
+            </Fab>
 
 
         </SafeAreaView>
@@ -165,4 +161,6 @@ const styles = StyleSheet.create({
 
 });
 
-export default MostLikedPage;
+
+
+export default FreeLessons;
