@@ -23,9 +23,10 @@ import FreeLessons from '../src/routers/Home/FreeLessons';
 import SearchCategory from '../src/routers/Search/SearchCategory';
 import DetailScreen from '../src/routers/Profile/DetailScreen';
 import Gonderiler from '../src/routers/Profile/Gonderiler';
-import ProfileScreens from '../src/routers/Profile/ProfileScreens';
+import ProfileScreens from './routers/Profile/ProfileScreen';
 import Rozet from '../src/routers/Profile/Rozet';
 import Kaydedilenler from '../src/routers/Profile/Kaydedilenler';
+import FirstScreen from '../src/routers/Auth/FirstScreen';
 
 
 
@@ -38,13 +39,35 @@ function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="ProfileScreens">
+        <RootStack.Navigator initialRouteName="HomeScreen">
           <RootStack.Screen name="LoadingScreen" component={LoadingScreen} />
-          <RootStack.Screen name="LoginScreen" component={LoginScreen} />
-          <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+
+          <RootStack.Screen 
+            name="FirstScreen" 
+            component={FirstScreen} 
+            options={({ navigation, route }) => ({
+              headerShown: false,
+            })}
+            />
+
+          
+          <RootStack.Screen 
+          name="LoginScreen" 
+          component={LoginScreen} 
+          options={({ navigation, route }) => ({
+            headerShown: false,
+          })}
+          />
+          <RootStack.Screen 
+           name="SignUpScreen" 
+           component={SignUpScreen} 
+           options={({ navigation, route }) => ({
+            headerShown: false,
+          })}
+           />
 
           <RootStack.Screen
-            name="ProfileScreen" //silinecek
+            name="ProfileScreen"
             component={ProfileScreen}
             options={({ navigation, route }) => ({
               title: 'Submit',

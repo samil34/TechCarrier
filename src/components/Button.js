@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { colors } from '../style';
 
+
 const Button = (props) => (
   <TouchableOpacity
     activeOpacity={0.8}
@@ -20,6 +21,7 @@ const Button = (props) => (
         color: 'white',
         fontWeight: 'bold',
         fontSize: 20
+        
       }, props.textStyle]}>{props.text}</Text>
     }
   </TouchableOpacity>
