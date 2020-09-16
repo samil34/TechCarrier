@@ -5,5 +5,5 @@ import {AppRegistry} from 'react-native';
 //import App from './src/routers/Profile/App'
 //import ProfileScreens from './src/routers/Profile/ProfileScreens'
 import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => Router);
+import App from './App'
+AppRegistry.registerComponent(appName, () => App);
