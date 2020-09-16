@@ -4,6 +4,9 @@ import { Icon } from 'native-base'
 import { colors } from '../../style';
 import { Input, Button } from '../../components'
 
+import { connect } from 'react-redux';
+import { isUser } from '../../redux/actions'
+
 
 const FirstScreen = (props) => (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '' }} >
@@ -14,14 +17,14 @@ const FirstScreen = (props) => (
         <View style={{ marginLeft:-25, width:100,height:25}}>
        <Image
           source = {require('../../img/logo.png')}
-          
+
        />
 
 
        </View>
         <View style={{ flex: 8, backgroundColor: 'red', width: '80%', alignItems: 'center', justifyContent: 'center' }}>
-       
-       
+
+
             <Text style={{
                 fontWeight: 'bold',
                 fontSize: 25,
@@ -46,4 +49,9 @@ const FirstScreen = (props) => (
     </SafeAreaView>
 );
 
-export default FirstScreen;
+const mapStateToProps = ({ authResponse }) => {
+  const { loading, user } = authResponse;
+  return { loading, user };
+};
+
+export default connect(mapStateToProps, { isUser })(FirstScreen);

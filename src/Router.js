@@ -37,6 +37,7 @@ import OnlineCourses from '../src/routers/OnlineCourses/OnlineCourses'
 import RequestAndSuggestions from '../src/routers/RequestAndSuggestions/RequestAndSuggestion';
 import AskedQuestions from '../src/routers/AskedQuestions/AskedQuestions';
 import HelpCenter from '../src/routers/HelpCenter/HelpCenter';
+
 import Menu from '../src/routers/Menu/Menu';
 
 const menu = (navigation) => {
@@ -211,15 +212,13 @@ const DrawerStackScreen = () => {
 };
 
 const RootStack = createStackNavigator();
-function Router() {
-
-  const user = true;
+function Router(props) {
 
   return (
     <NavigationContainer ref={navigationRef}>
       <RootStack.Navigator headerMode="none" mode="modal">
         {
-          user ?
+          props.user ?
             (
               <>
                 <RootStack.Screen
@@ -231,17 +230,26 @@ function Router() {
                 />
               </>
 
-            ) :
-            (<RootStack.Screen
-              name="Auth"
-              component={AuthStackScreen}
-              options={{
-                animationEnabled: false
-              }}
-            />)
+            )
+            :
+            (
+              <RootStack.Screen
+                name="Auth"
+                component={AuthStackScreen}
+                options={{
+                  animationEnabled: false
+                }}
+              />
+            )
         }
       </RootStack.Navigator>
     </NavigationContainer>
   );
 }
-export default Router;
+
+const mapStateToProps = ({ authResponse }) => {
+  const { loading, user } = authResponse;
+  return { loading, user };
+};
+
+export default connect(mapStateToProps, {})(Router);
