@@ -4,7 +4,8 @@ import { Text, View, Image, ScrollView, SafeAreaView, TouchableOpacity, Picker, 
 
 
 
-const Edit = (props) => {
+const 
+ Edit = (props) => {
 
     const [cinsiyet, setCinsiyet] = useState('Erkek')
 
