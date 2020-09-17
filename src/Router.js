@@ -72,8 +72,8 @@ const HomeStackScreen = () => {
 
 
       <HomeStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="FirstScreen"
+        component={FirstScreen}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
         })} />
