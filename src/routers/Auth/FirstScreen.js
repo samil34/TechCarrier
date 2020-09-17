@@ -15,12 +15,12 @@ const FirstScreen = (props) => (
             />
         </View> */}
 
-        <View style={{ flex:3,width: '70%', backgroundColor: '', alignItems:'center',justifyContent:'center' }}>
-        <Image
+        <View style={{ flex: 3, width: '70%', backgroundColor: '', alignItems: 'center', justifyContent: 'center' }}>
+            <Image
                 source={require('../../img/logo2.png')}
                 style={{ width: 50, height: 50 }}
             />
-           <Text style={{fontSize:25, fontWeight:'bold'}}>TechCarrier</Text>
+            <Text style={{ fontSize: 25, fontWeight: 'bold' }}>TechCareer</Text>
 
         </View>
 
@@ -44,11 +44,24 @@ const FirstScreen = (props) => (
             />
         </View> */}
 
-        <View style = {{flex: 5,width: '70%',backgroundColor:'purple', alignItems:'center',justifyContent:'center'}}>
- 
-              <Text></Text>
-              <Button
+        <View style= {{flex: 3, width:'70%', backgroundColor:'red'}}>
+      
+       <Text>Teknoloji, Carrier, Girişimcilik</Text>
+
+        </View>
+
+        <View style={{ flex: 3, width: '70%', backgroundColor: 'purple', alignItems: 'center', justifyContent: 'center' }}>
+
+            
+            <Button
                 text={'Hesap Oluştur'}
+                onPress={() => {
+                    props.navigation.navigate('SignUpScreen')
+                }}
+            />
+
+            <Button
+                text={'Giriş Yap'}
                 onPress={() => {
                     props.navigation.navigate('SignUpScreen')
                 }}
@@ -56,10 +69,7 @@ const FirstScreen = (props) => (
 
         </View>
 
-        <View style={{ flex: 1, width: '70%', backgroundColor: 'blue' }}>
-            <Text style={{ fontSize: 12 }}>Zaten bir hesabın var mı?
-                <Text style={{ color: colors.main }} onPress={() => { props.navigation.navigate('LoginScreen') }}> Giriş yap</Text></Text>
-        </View>
+        
 
 
     </SafeAreaView>

@@ -9,8 +9,9 @@ const Button = (props) => (
     onPress={props.onPress}
     style={[{
       backgroundColor: colors.main,
-      width: '100%',
-      height: '8%',
+      width: '60%',
+      marginBottom:15,
+      height: '10%',
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 40

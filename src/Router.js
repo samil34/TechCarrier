@@ -76,6 +76,7 @@ const HomeStackScreen = () => {
         component={FirstScreen}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
+          headerShown: false,
         })} />
 
       <HomeStack.Screen name="HomeSubmit" component={HomeSubmit} />
