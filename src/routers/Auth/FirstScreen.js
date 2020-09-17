@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, SafeAreaView,Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { Text, View, SafeAreaView,Image, ActivityIndicator } from 'react-native';
 import { Icon } from 'native-base'
 import { colors } from '../../style';
 import { Input, Button } from '../../components'
@@ -8,18 +8,32 @@ import { connect } from 'react-redux';
 import { isUser } from '../../redux/actions'
 
 
-const FirstScreen = (props) => (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '' }} >
-        <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-            <Icon style={{ color: colors.main }} type="FontAwesome" name={'book'} fontSize={40} />
-        </View>
+const FirstScreen = (props) => {
 
-        <View style={{ marginLeft:-25, width:100,height:25}}>
+  useEffect(() => {
+    props.isUser()
+  }, [])
+
+  if(props.loading) {
+        return(
+            <View style={{ flex:1 , alignItems: 'center', justifyContent: 'center'}}>
+                <ActivityIndicator size='large' />
+            </View>
+        )
+    }
+
+  return (
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '' }} >
+      <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+        <Icon style={{ color: colors.main }} type="FontAwesome" name={'book'} fontSize={40} />
+      </View>
+      <View style={{ marginLeft:-25, width:100,height:25}}>
+
+
        <Image
           source = {require('../../img/logo.png')}
 
        />
-
 
        </View>
         <View style={{ flex: 8, backgroundColor: 'red', width: '80%', alignItems: 'center', justifyContent: 'center' }}>
@@ -47,7 +61,8 @@ const FirstScreen = (props) => (
                 <Text style={{ color: colors.main }} onPress={() => { props.navigation.navigate('LoginScreen') }}> Giriş yap</Text></Text>
         </View>
     </SafeAreaView>
-);
+  )
+};
 
 const mapStateToProps = ({ authResponse }) => {
   const { loading, user } = authResponse;

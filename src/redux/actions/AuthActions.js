@@ -116,6 +116,23 @@ export const isUser = () => {
   }
 }
 
+const getUser = (uid, dispatch) => {
+  firestore()
+    .collection('Users')
+    .doc(uid)
+    .get().then((user) => {
+      console.log('Gelen Data: ', user._data);
+      const userParams = {
+        ...user._data,
+        uid
+      }
+      dispatch({ type: LOGIN_SUCCESS, payload: userParams })
+    }).catch((err) => {
+      console.log('Read Data error: ', err);
+      dispatch({ type: LOGIN_FAILED })
+    })
+}
+
 export const signOut = () => {
   return (dispatch) => {
     auth()
