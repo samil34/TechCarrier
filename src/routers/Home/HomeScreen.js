@@ -15,6 +15,7 @@ const HomeScreen = (props) => {
 
     useEffect(() => {
         props.getList()
+        console.log(props.list)
     }, []);
 
     const renderItem = ({item}) => (
@@ -31,7 +32,7 @@ const HomeScreen = (props) => {
                             <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
                                 <Text>foto</Text>
                             </View>
-                        
+
 
                         <View style={{ justifyContent: 'center' }}>
                             <Text>  {item.user.name}</Text>
@@ -40,8 +41,8 @@ const HomeScreen = (props) => {
 
                         </TouchableOpacity>
                        </View>
-                       
-                    
+
+
 
 
 
@@ -108,7 +109,7 @@ const HomeScreen = (props) => {
                             <Text
                                 style={{ fontSize: 15, marginBottom: 30 }}
                             >
-                            List is empty now. Start adding tasks!
+                            List is empty now. Start posting!
                             </Text>
                         </View>
                     )
@@ -149,18 +150,13 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         borderColor: 'gray',
         backgroundColor: '#ffffff',
-
-
-
     },
-
-
 });
 
 
 const mapStateToProps = ({ listResponse }) => {
-    const { list } = listResponse;
-    return { list };
+    const { loading, list } = listResponse;
+    return { loading, list };
 };
 
 export default connect(mapStateToProps, { getList })(HomeScreen);

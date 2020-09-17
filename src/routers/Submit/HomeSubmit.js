@@ -4,7 +4,7 @@ import { Platform, Text, View, SafeAreaView, ScrollView, Keyboard, Picker, Style
 import { Button, Input } from '../../components';
 import { Icon } from 'native-base';
 
-import { addItem } from '../../redux/actions';
+import { addPost } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 const HomeSubmit = (props) => {
@@ -26,7 +26,7 @@ const HomeSubmit = (props) => {
                     // loading={props.loading}
                     textStyle={{ fontSize: 16 }}
                     onPress={() => {
-                        addItem({
+                        props.addPost({
                             "user":{"name":"Mukaddes", "rozet":"Rozet ismi 3. gun"},
                             "dsc":aciklama,
                             "category":kategori,
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = ({ listResponse }) => {
-    const { list } = listResponse;
-    return { list };
+    const { loading, list } = listResponse;
+    return { loading, list };
 };
 
-export default connect(mapStateToProps, { addItem })(HomeSubmit);
+export default connect(mapStateToProps, { addPost })(HomeSubmit);
