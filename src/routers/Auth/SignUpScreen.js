@@ -8,6 +8,9 @@ import { StackActions } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+import { connect } from 'react-redux';
+import { register } from '../../redux/actions'
+
 
 const SignUpScreen = (props) => {
 
@@ -62,7 +65,7 @@ const SignUpScreen = (props) => {
             <View style={{ flex: 9 }}>
                 <ScrollView style={{ padding: 20 }}>
                 <View style = {{flexDirection:'row',alignItems:'center',marginBottom:15}}>
-                 <Image 
+                 <Image
                          source={require('../../img/logo2.png')}
                          style={{width: 50,height: 50,}}
                          />
@@ -71,13 +74,13 @@ const SignUpScreen = (props) => {
                  </View>
 
                     <View style={styles.inputView} >
-                        
+
                         <TextInput
                             autoFocus
                             style={styles.inputText}
                             placeholder="İsim Soyisim..."
                             placeholderTextColor="#003f5c"
-                            onChangeText={text => this.setState({ email: text })}
+                            onChangeText={(name) => setName(name)}
                         />
                     </View>
 
@@ -86,7 +89,7 @@ const SignUpScreen = (props) => {
                             style={styles.inputText}
                             placeholder="Kullanıcı Adı..."
                             placeholderTextColor="#003f5c"
-                            onChangeText={text => this.setState({ email: text })}
+                            onChangeText={(username) => setUsername(username)}
                         />
                     </View>
 
@@ -95,16 +98,17 @@ const SignUpScreen = (props) => {
                             style={styles.inputText}
                             placeholder="Email..."
                             placeholderTextColor="#003f5c"
-                            onChangeText={text => this.setState({ email: text })}
+                            onChangeText={(email) => setEmail(email)}
                         />
                     </View>
 
                     <View style={styles.inputView} >
                         <TextInput
                             style={styles.inputText}
+                            secureTextEntry={true}
                             placeholder="Şifre..."
                             placeholderTextColor="#003f5c"
-                            onChangeText={text => this.setState({ email: text })}
+                            onChangeText={(password) => setPassword(password)}
                         />
                     </View>
 
@@ -140,6 +144,12 @@ const SignUpScreen = (props) => {
                 <Text style={{ color: colors.main, fontSize: 14 }}>Şifreni mi unuttun?</Text>
 
                 <TouchableOpacity
+
+                onPress={() => {
+                  const params = { email, password, name, username }
+                  props.register(params)
+                }}
+
                     style={{
                         backgroundColor: colors.main,
                         // width: '80%',
@@ -195,4 +205,9 @@ const styles = StyleSheet.create({
 
 });
 
-export default SignUpScreen;
+const mapStateToProps = ({ authResponse }) => {
+    const { loading, user } = authResponse;
+    return { loading, user };
+};
+
+export default connect(mapStateToProps, { register })(SignUpScreen);

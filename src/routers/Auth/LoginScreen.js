@@ -8,11 +8,12 @@ import { StackActions } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+import { connect } from 'react-redux';
+import { login } from '../../redux/actions'
+
 
 const LoginScreen = (props) => {
 
-    const [name, setName] = useState('test')
-    const [username, setUsername] = useState('test1')
     const [email, setEmail] = useState('test@test.com')
     const [password, setPassword] = useState('123456')
 
@@ -61,18 +62,18 @@ const LoginScreen = (props) => {
 
             <View style={{ flex: 9 }}>
                 <ScrollView style={{ padding: 20 }}>
-                    
+
                  <View style = {{flexDirection:'row',alignItems:'center',marginBottom:15}}>
-                 <Image 
+                 <Image
                          source={require('../../img/logo2.png')}
                          style={{width: 50,height: 50,}}
                          />
                          <Text style={{  fontSize: 20, width: '70%', textAlign: 'left',color:'white',marginLeft:10 }}>
                           TechCareer'e Giriş Yap</Text>
                  </View>
-                         
 
-                         
+
+
 
                     <View style={styles.inputView} >
                         <TextInput
@@ -80,20 +81,21 @@ const LoginScreen = (props) => {
                             style={styles.inputText}
                             placeholder="Email..."
                             placeholderTextColor="#003f5c"
-                            onChangeText={text => this.setState({ email: text })}
+                            onChangeText={(email) => setEmail(email)}
                         />
                     </View>
 
-                    
 
-                    
+
+
 
                     <View style={styles.inputView} >
                         <TextInput
                             style={styles.inputText}
+                            secureTextEntry={true}
                             placeholder="Şifre..."
                             placeholderTextColor="#003f5c"
-                            onChangeText={text => this.setState({ email: text })}
+                            onChangeText={(password) => setPassword(password)}
                         />
                     </View>
 
@@ -129,6 +131,10 @@ const LoginScreen = (props) => {
                 <Text style={{ color: colors.main, fontSize: 14 }}>Şifreni mi unuttun?</Text>
 
                 <TouchableOpacity
+                  onPress={() => {
+                    const params = { email, password }
+                    props.login(params)
+                  }}
                     style={{
                         backgroundColor: colors.main,
                         // width: '80%',
@@ -151,23 +157,13 @@ const LoginScreen = (props) => {
 
             </Animated.View>
 
-
-
-
         </SafeAreaView>
     )
-
 }
-
-
-
-
 
 const styles = StyleSheet.create({
     input: { height: '20%', },
 
-
-    
     inputView: {
 
         width: "80%",
@@ -185,4 +181,9 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginScreen;
+const mapStateToProps = ({ authResponse }) => {
+  const { loading, user } = authResponse;
+  return { loading, user };
+};
+
+export default connect(mapStateToProps, { login })(LoginScreen);

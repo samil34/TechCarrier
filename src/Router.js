@@ -60,7 +60,7 @@ const menu = (navigation) => {
       />
       </View>
 
-      
+
     </TouchableOpacity>
 
 
@@ -73,7 +73,7 @@ const logo = (navigation) => {
 
     <TouchableOpacity
       onPress={() => {
-      navigation.navigate('HomeScreen')
+        navigation.navigate('HomeScreen')
       }}
       style={{
         marginRight: 10
@@ -131,12 +131,13 @@ const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator>
 
-      
+
 
 <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
         options={({ navigation, route }) => ({
+          title:'TechCareer',
           headerLeft: () => menu(navigation),
           headerRight: () => logo(navigation)
         })}
@@ -301,7 +302,7 @@ const TabStackScreen = () => {
       <TabStack.Screen name="Free" component={FreeLessonsStackScreen} />
       <TabStack.Screen name="Search" component={SearchStackScreen} />
       <TabStack.Screen name="mos" component={MostLikedStackScreen} />
-      
+
     </TabStack.Navigator>
   );
 };
@@ -323,15 +324,13 @@ const DrawerStackScreen = () => {
 };
 
 const RootStack = createStackNavigator();
-function Router() {
-
-  const user = true;
+function Router(props) {
 
   return (
     <NavigationContainer ref={navigationRef}>
       <RootStack.Navigator headerMode="none" mode="modal">
         {
-          user ?
+          props.user ?
             (
               <>
                 <RootStack.Screen
@@ -356,4 +355,10 @@ function Router() {
     </NavigationContainer>
   );
 }
-export default Router;
+
+const mapStateToProps = ({ authResponse }) => {
+  const { loading, user } = authResponse;
+  return { loading, user };
+};
+
+export default connect(mapStateToProps, {})(Router);
