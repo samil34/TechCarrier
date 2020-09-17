@@ -93,13 +93,7 @@ const FreeLessons = (props) => {
 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
 
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
-                <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
-                <Text style={{ color: colors.main, fontSize: 16 }}>Online Eğitimler</Text>
-                <Text >Logo</Text>
-
-            </View>
-
+        
 
             <FlatList
                 style={{ flex: 1 }}
@@ -124,9 +118,6 @@ const FreeLessons = (props) => {
                     )
                 }}
             />
-
-
-
 
 
 

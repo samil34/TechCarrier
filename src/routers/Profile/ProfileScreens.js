@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, Image, FlatList, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { colors } from '../../style';
-import { color } from 'react-native-reanimated';
 
 const Data = [
     {

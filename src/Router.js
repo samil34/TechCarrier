@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { connect } from 'react-redux';
-import Icon from 'react-native-ionicons';
+import {Icon} from 'native-base';
 import { navigationRef } from './RootNavigation';
+
+import { colors } from '../src/style'
 
 //-------> SCREENS <-------\\
 import LoadingScreen from '../src/routers/Loading/LoadingScreen';
@@ -39,8 +41,10 @@ import AskedQuestions from '../src/routers/AskedQuestions/AskedQuestions';
 import HelpCenter from '../src/routers/HelpCenter/HelpCenter';
 import Menu from '../src/routers/Menu/Menu';
 
+
 const menu = (navigation) => {
   return (
+
     <TouchableOpacity
       onPress={() => {
         navigation.openDrawer()
@@ -49,10 +53,44 @@ const menu = (navigation) => {
         marginLeft: 10
       }}
     >
-      <Icon name='list' type='FontAwesome' />
+      <View style={{borderWidth:0.2,width: 40, height: 40 , borderRadius:25, justifyContent:'center',alignItems:'center'}}>
+      <Image
+        source={require('./img/foto.png')}
+        style={{  width: 40, height: 40, borderRadius:25 }}
+      />
+      </View>
+
+      
     </TouchableOpacity>
+
+
+
   )
 }
+
+const logo = (navigation) => {
+  return (
+
+    <TouchableOpacity
+      onPress={() => {
+        navigation.openDrawer()
+      }}
+      style={{
+        marginRight: 10
+      }}
+    >
+
+      <Image
+        source={require('./img/logo2.png')}
+        style={{ width: 40, height: 40 }}
+      />
+
+    </TouchableOpacity>
+
+  )
+}
+
+
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => {
@@ -94,21 +132,31 @@ const HomeStackScreen = () => {
     <HomeStack.Navigator>
 
       <HomeStack.Screen
-        name="FirstScreen"
-        component={FirstScreen}
+        name="TechCareer"
+
+        component={HomeScreen}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
-          headerShown: false,
+          headerRight: () => logo(navigation),
+
+
         })} />
 
-      <HomeStack.Screen name="HomeSubmit" component={HomeSubmit} />
+      <HomeStack.Screen
+        name="HomeSubmit"
+        component={HomeSubmit}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+        })}
+      />
 
       <HomeStack.Screen
-      name="ProfileScreen"
-      component={ProfileScreen}
-      options={({ navigation, route }) => ({
-        headerShown: false,
-      })}
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+
+        })}
       />
 
       <HomeStack.Screen
@@ -116,6 +164,15 @@ const HomeStackScreen = () => {
         component={Edit}
         options={({ navigation, route }) => ({
           headerShown: false,
+        })}
+      />
+
+      <HomeStack.Screen
+        name="Biyografi"
+        component={Biyografi}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+
         })}
       />
 
@@ -129,10 +186,11 @@ const SearchStackScreen = () => {
     <SearchStack.Navigator>
 
       <SearchStack.Screen
-        name="Search"
+        name="Arama"
         component={Search}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
         })} />
 
     </SearchStack.Navigator>
@@ -151,12 +209,51 @@ const MostLikedStackScreen = () => {
         component={MostLikedPage}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
         })} />
 
     </MostLikedStack.Navigator>
 
   );
 };
+
+
+const FreeLessonsStack = createStackNavigator();
+const FreeLessonsStackScreen = () => {
+  return (
+    <FreeLessonsStack.Navigator>
+      <FreeLessonsStack.Screen
+        name="Ücretsiz Dersler"
+        component={FreeLessons}
+        options={({ navigation, route }) => ({
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+        })} />
+
+    </FreeLessonsStack.Navigator>
+
+  );
+};
+
+
+const OnlineCourseStack = createStackNavigator();
+const OnlineCourseStackScreen = () => {
+  return (
+    <OnlineCourseStack.Navigator>
+
+      <OnlineCourseStack.Screen
+        name="Online Eğitimler"
+        component={OnlineCourse}
+        options={({ navigation, route }) => ({
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+        })} />
+
+    </OnlineCourseStack.Navigator>
+
+  );
+};
+
 
 
 const TabStack = createBottomTabNavigator();
@@ -168,17 +265,21 @@ const TabStackScreen = () => {
           let iconName;
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'MostLiked') {
-            iconName = 'star';
+          } else if (route.name === 'mos') {
+            iconName = 'bell';
           } else if (route.name === 'Search') {
             iconName = 'search';
+          } else if (route.name === 'Free') {
+            iconName = 'book'
+          }else if (route.name == 'Course') {
+            iconName = 'calendar'
           }
 
           return (
             <Icon
               type="FontAwesome"
               name={iconName}
-            //style={{color: focused ? colors.main : color, fontSize: size}}
+              style={{ color: focused ? colors.main : color, fontSize: size }}
             />
           );
         },
@@ -188,9 +289,11 @@ const TabStackScreen = () => {
         showLabel: false,
       }}>
       <TabStack.Screen name="Home" component={HomeStackScreen} />
-      <TabStack.Screen name="MostLiked" component={MostLikedStackScreen} />
+      <TabStack.Screen name="Course" component={OnlineCourseStackScreen} />
+      <TabStack.Screen name="Free" component={FreeLessonsStackScreen} />
       <TabStack.Screen name="Search" component={SearchStackScreen} />
-
+      <TabStack.Screen name="mos" component={MostLikedStackScreen} />
+      
     </TabStack.Navigator>
   );
 };
@@ -206,7 +309,7 @@ const DrawerStackScreen = () => {
         width: '85%',
       }}
     >
-      <DrawerStack.Screen name="Tech Carier" component={TabStackScreen} />
+      <DrawerStack.Screen name="TechCarier" component={TabStackScreen} />
     </DrawerStack.Navigator>
   );
 };
@@ -214,7 +317,7 @@ const DrawerStackScreen = () => {
 const RootStack = createStackNavigator();
 function Router() {
 
-  const user = true;
+  const user = false;
 
   return (
     <NavigationContainer ref={navigationRef}>

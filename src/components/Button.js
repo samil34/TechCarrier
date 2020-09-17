@@ -14,6 +14,7 @@ const Button = (props) => (
       height: '10%',
       alignItems: 'center',
       justifyContent: 'center',
+      padding:20,
       borderRadius: 40
     }, props.style]}>
     {props.loading ?
@@ -21,7 +22,8 @@ const Button = (props) => (
       <Text style={[{
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 20,
+       
         
       }, props.textStyle]}>{props.text}</Text>
     }

@@ -6,53 +6,35 @@ import { Input, Button } from '../../components'
 
 
 const FirstScreen = (props) => (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '' }} >
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }} >
 
-        {/* <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: 'yellow' }}>
+
+
+        <View style={{ flex: 3, width: '70%', alignItems: 'center', justifyContent: 'center' }}>
             <Image
                 source={require('../../img/logo2.png')}
-                style={{ width: 50, height: 50 }}
+                style={{ width: '21%', height: '30%' }}
             />
-        </View> */}
-
-        <View style={{ flex: 3, width: '70%', backgroundColor: '', alignItems: 'center', justifyContent: 'center' }}>
-            <Image
-                source={require('../../img/logo2.png')}
-                style={{ width: 50, height: 50 }}
-            />
-            <Text style={{ fontSize: 25, fontWeight: 'bold' }}>TechCareer</Text>
+            <Text style={{ fontSize: 30, fontWeight: 'bold' }}>TechCareer</Text>
 
         </View>
 
 
-        {/* <View style={{ flex: 6, backgroundColor: 'blue', width: '80%', alignItems: 'center', justifyContent: 'center' }}>
-       
-        
-            <Text style={{
-                fontWeight: 'bold',
-                fontSize: 25,
-                width: '100%',
-                marginBottom: 20,
-                textAlign: 'left',
-                padding: 10,
-            }}>Şu anda dünyada olup bitenleri gör.</Text>
-            <Button
-                text={'Hesap Oluştur'}
-                onPress={() => {
-                    props.navigation.navigate('SignUpScreen')
-                }}
-            />
-        </View> */}
+        <View style={{ flex: 3, width: '70%' }}>
 
-        <View style= {{flex: 3, width:'70%', backgroundColor:'red'}}>
-      
-       <Text>Teknoloji, Carrier, Girişimcilik</Text>
+            <Image
+                source={require('../../img/first.jpg')}
+                style={{ width: '100%', height: '100%' }}
+            />
+
+
 
         </View>
 
-        <View style={{ flex: 3, width: '70%', backgroundColor: 'purple', alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 4, width: '70%', alignItems: 'center', justifyContent: 'center' }}>
 
-            
+
+
             <Button
                 text={'Hesap Oluştur'}
                 onPress={() => {
@@ -63,13 +45,13 @@ const FirstScreen = (props) => (
             <Button
                 text={'Giriş Yap'}
                 onPress={() => {
-                    props.navigation.navigate('SignUpScreen')
+                    props.navigation.navigate('LoginScreen')
                 }}
             />
 
         </View>
 
-        
+
 
 
     </SafeAreaView>

@@ -7,16 +7,7 @@ const Search = (props) => {
 
 
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: '#f5f5f5',marginBottom:15 }}>
-
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
-                <Text style={{ color: 'black', fontSize: 16 }}>kişi foto</Text>
-                <Text style={{ color: colors.main, fontSize: 16 }}>Arama</Text>
-                <Text >Logo</Text>
-
-            </View>
-
-
+        <ScrollView style={{ flex: 1, backgroundColor: '#f5f5f5',marginTop:10 }}>
 
             <View style={{ flexDirection: 'row' }}>
 

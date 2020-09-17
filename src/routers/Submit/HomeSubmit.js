@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Platform, Text, View, SafeAreaView, ScrollView, Keyboard, Picker, StyleSheet, TextInput } from 'react-native'
+import { Platform, Text, View, SafeAreaView, ScrollView, Keyboard, Picker, StyleSheet, TextInput,TouchableOpacity } from 'react-native'
 
+import { colors } from '../../style';
 import { Button, Input } from '../../components';
 import { Icon } from 'native-base';
 
 import { addItem } from '../../redux/actions';
 import { connect } from 'react-redux';
+
 
 const HomeSubmit = (props) => {
 
@@ -21,22 +23,36 @@ const HomeSubmit = (props) => {
 
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10 }}>
                 <Text onPress={() => props.navigation.pop()} style={{ color: 'black', fontSize: 16 }}>Vazgeç</Text>
-                <Button
-                    text={'Gönder'}
-                    // loading={props.loading}
-                    textStyle={{ fontSize: 16 }}
-                    onPress={() => {
-                        addItem({
-                            "user":{"name":"Mukaddes", "rozet":"Rozet ismi 3. gun"},
-                            "dsc":aciklama,
-                            "category":kategori,
-                            "link":"https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/",
-                            "likes":["eren","onur","mukaddes"],
-                            "comments":["eren","onur","mukaddes"]
-                        })
+                <TouchableOpacity
+                onPress={() => {
+                    addItem({
+                        "user": { "name": "Mukaddes", "rozet": "Rozet ismi 3. gun" },
+                        "dsc": aciklama,
+                        "category": kategori,
+                        "link": "https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/",
+                        "likes": ["eren", "onur", "mukaddes"],
+                        "comments": ["eren", "onur", "mukaddes"]
+                    })
+                }}
+                 style={{
+                    backgroundColor: colors.main,
+                     width: '20%',
+                     height: 35,
+                     alignItems: 'center',
+                     justifyContent: 'center',
+                     borderRadius: 40,
                     }}
-                    style={{ width: '20%', height: 35 }}
-                />
+                >
+                <Text
+                    style={{
+                        fontSize: 16,
+                        color:'white'
+                    }}
+
+                >Gönder</Text>
+
+                </TouchableOpacity>
+                
             </View>
 
 
@@ -68,7 +84,7 @@ const HomeSubmit = (props) => {
                         numberOfLines={30}
                         multiline={true}
                         autoFocus
-                        onChangeText= {(aciklama)=>setAciklama(aciklama)}
+                        onChangeText={(aciklama) => setAciklama(aciklama)}
                     />
 
                 </View>
@@ -85,7 +101,7 @@ const HomeSubmit = (props) => {
                         placeholderTextColor={"#9E9E9E"}
                         numberOfLines={10}
                         multiline={true}
-                        onChangeText= {(link)=>setLink(link)}
+                        onChangeText={(link) => setLink(link)}
                     />
 
                 </View>

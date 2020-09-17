@@ -84,14 +84,7 @@ const HomeScreen = (props) => {
 
         <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
 
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
-               {/* <Icon style={{ color: 'black', fontSize: 16 }}>kişi foto/</Icon> */}
-                <Icon name="user" type='FontAwesome' style={{ fontSize: 30, color: 'black' }} />
-                <Text style={{ color: colors.main, fontSize: 16 }}>Home</Text>
-                <Text >Logo</Text>
-
-            </View>
-
+         
             <FlatList
                 style={{ flex: 1 }}
                 data={props.list}

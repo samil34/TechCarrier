@@ -18,7 +18,7 @@ const UselessTextInput = (props) => {
 }
 
 const Biyografi = (props) => {
-    const [biyo, setBiyo] = useState('selam');
+    const [biyo, setBiyo] = useState('');
 
     // If you type something in the text box that is a color, the background will change to that
     // color.
