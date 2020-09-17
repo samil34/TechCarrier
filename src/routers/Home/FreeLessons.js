@@ -126,7 +126,7 @@ const FreeLessons = (props) => {
                 style={{ backgroundColor: colors.main }}
                 position="bottomRight"
                 onPress={() => { props.navigation.navigate('HomeSubmit') }}>
-                <Icon name="plus" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
+                <Icon name="pencil" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
             </Fab>
 
 

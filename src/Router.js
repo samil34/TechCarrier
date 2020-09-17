@@ -73,7 +73,7 @@ const logo = (navigation) => {
 
     <TouchableOpacity
       onPress={() => {
-        navigation.openDrawer()
+      navigation.navigate('HomeScreen')
       }}
       style={{
         marginRight: 10
@@ -131,16 +131,16 @@ const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator>
 
-      <HomeStack.Screen
-        name="TechCareer"
+      
 
+<HomeStack.Screen
+        name="HomeScreen"
         component={HomeScreen}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
-          headerRight: () => logo(navigation),
-
-
-        })} />
+          headerRight: () => logo(navigation)
+        })}
+      />
 
       <HomeStack.Screen
         name="HomeSubmit"
@@ -188,6 +188,14 @@ const SearchStackScreen = () => {
       <SearchStack.Screen
         name="Arama"
         component={Search}
+        options={({ navigation, route }) => ({
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+        })} />
+
+      <SearchStack.Screen
+        name="SearchCategory"
+        component={SearchCategory}
         options={({ navigation, route }) => ({
           headerLeft: () => menu(navigation),
           headerRight: () => logo(navigation),
@@ -317,7 +325,7 @@ const DrawerStackScreen = () => {
 const RootStack = createStackNavigator();
 function Router() {
 
-  const user = false;
+  const user = true;
 
   return (
     <NavigationContainer ref={navigationRef}>
