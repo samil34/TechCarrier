@@ -8,6 +8,11 @@ import {
     ADD_LESSON_FAILED,
   } from './types';
 
+  import * as RootNavigation from '../../RootNavigation';
+  import auth from '@react-native-firebase/auth';
+  import firestore from '@react-native-firebase/firestore';
+
+  import { Alert } from 'react-native'
 
 export const getLessons = () => {
   return (dispatch) => {
@@ -16,9 +21,9 @@ export const getLessons = () => {
       .collection('Lessons')
       // .orderBy('createdDate', 'desc')
       .onSnapshot(lessons => {
-        console.log('posts data:', lessons);
+        console.log('lessons data:', lessons);
         let data = [];
-        posts.forEach((doc) => {
+        lessons.forEach((doc) => {
           data.push(doc.data())
         })
         console.log('data: ', data);

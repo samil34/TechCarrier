@@ -1,12 +1,18 @@
 import {
-    COURSE_START,
-    COURSE_SUCCESS,
-    COURSE_FAILED,
+  COURSE_START,
+  COURSE_SUCCESS,
+  COURSE_FAILED,
 
-    ADD_COURSE_START,
-    ADD_COURSE_SUCCESS,
-    ADD_COURSE_FAILED,
-  } from './types';
+  ADD_COURSE_START,
+  ADD_COURSE_SUCCESS,
+  ADD_COURSE_FAILED,
+} from './types';
+
+import * as RootNavigation from '../../RootNavigation';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+import { Alert } from 'react-native'
 
 export const getCourses = () => {
   return (dispatch) => {
@@ -17,7 +23,7 @@ export const getCourses = () => {
       .onSnapshot(courses => {
         console.log('courses data:', courses);
         let data = [];
-        posts.forEach((doc) => {
+        courses.forEach((doc) => {
           data.push(doc.data())
         })
         console.log('data: ', data);

@@ -24,8 +24,8 @@ const HomeSubmit = (props) => {
             <View style={{ backgroundColor:'', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',padding:15 }}>
                 <Text onPress={() => props.navigation.pop()} style={{ color: colors.main, fontWeight:'bold', fontSize: 16 }}>Vazgeç</Text>
                 {/* <Icon onPress={()=> {props.navigation.pop()}} name={'times'} size={30} color={colors.main} /> */}
-                
-                
+
+
                 <Text
                     style={{ borderWidth:1,borderColor:'gray', padding:10, borderRadius:20, backgroundColor: colors.main, color:'white', fontWeight:'bold', fontSize: 16 }}
                     onPress={() => {
@@ -37,7 +37,7 @@ const HomeSubmit = (props) => {
                             "likes": 0,
                         })
                     }}
-                    
+
                 >Gönder</Text>
 
 
@@ -67,6 +67,7 @@ const HomeSubmit = (props) => {
 
                 <TextInput
                   style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray',height:100, borderRadius:20,fontSize:15,paddingLeft:10  }}
+                        onChangeText={(aciklama) => setAciklama(aciklama)}
                         underlineColorAndroid="transparent"
                         placeholder={"Kısaca Açıklayınız..."}
                         placeholderTextColor={"#9E9E9E"}
@@ -82,6 +83,7 @@ const HomeSubmit = (props) => {
 
                 <TextInput
                   style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray', borderRadius:20,fontSize:15,paddingLeft:10 }}
+                  onChangeText={(link) => setLink(link)}
                   placeholder={"Link Gönder..."}
                 />
 
@@ -115,8 +117,3 @@ const mapStateToProps = ({ listResponse }) => {
 
 
 export default connect(mapStateToProps, { addPost })(HomeSubmit);
-
-
-
-
-

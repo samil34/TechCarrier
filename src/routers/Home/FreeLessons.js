@@ -1,103 +1,88 @@
-import React from 'react';
+import * as React from 'react';
+import { useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 
 import { colors } from '../../style';
 import { Fab, Icon } from 'native-base';
 
-
-const DATA = [
-    {
-        user: { name: 'Şamil Akpınar', rozet: 'Yeni' },
-        date: '1 sa',
-        category: 'Yapay Zeka ',
-        aciklama: 'Kurslar hakkında bilgi',
-        link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
-        likes: ["eren", "onur", "mukaddes"],
-        comments: ["samil", "mukaddes", "onur", "ali", "veli"]
-    },
-    {
-        user: { name: 'Eren ', rozet: 'Yeni' },
-        date: '12 sa',
-        category: 'React-native  ',
-        aciklama: 'kurs için bilgi ',
-        link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
-        likes: ["eren", "onur", "mukaddes"],
-        comments: ["samil", "mukaddes", "onur", "ali"]
-    }
-];
-
-
-const renderItem = ({ item }) => (
-
-    <View style={styles.item}>
-
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-
-            <View>
-                <TouchableOpacity 
-                style={{ flexDirection: 'row' }}
-                onPress={() => { props.navigation.navigate('ProfileScreen') }}
-                >
-
-                    <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
-                        <Text>foto</Text>
-                    </View>
-
-
-                    <View style={{ justifyContent: 'center', marginLeft: 5 }}>
-                        <Text>{item.user.name}</Text>
-                        <Text>{item.user.rozet} . {item.date}</Text>
-                    </View>
-                </TouchableOpacity>
-
-
-            </View>
-
-            
-
-        </View>
-
-
-
-        <View style={{ marginTop: 15, marginBottom: 15 }}>
-            <Text>{item.aciklama}</Text>
-
-        </View>
-
-        <View style={{ marginTop: 10, marginBottom: 10 }}>
-            <Text style={{ color: '#0087d1' }}> {item.link} </Text>
-
-        </View>
-
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
-            <Text>{item.likes.length}</Text>
-            <Text>{item.comments.length} Yorum</Text>
-        </View>
-
-        <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
-            <Text>Beğen </Text>
-            <Text>Kaydet</Text>
-        </View>
-
-
-
-    </View>
-
-)
+import { connect } from 'react-redux';
+import { getLessons } from '../../redux/actions';
 
 
 
 const FreeLessons = (props) => {
 
+  useEffect(() => {
+      props.getLessons()
+  }, []);
+
+  const renderItem = ({ item }) => (
+
+      <View style={styles.item}>
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+              <View>
+                  <TouchableOpacity
+                  style={{ flexDirection: 'row' }}
+                  onPress={() => { props.navigation.navigate('ProfileScreen') }}
+                  >
+
+                      <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
+                          <Text>foto</Text>
+                      </View>
+
+
+                      <View style={{ justifyContent: 'center', marginLeft: 5 }}>
+                          <Text>{item.user.name}</Text>
+                          <Text>{item.user.rozet} . {item.date}</Text>
+                      </View>
+                  </TouchableOpacity>
+
+
+              </View>
+
+
+
+          </View>
+
+
+
+          <View style={{ marginTop: 15, marginBottom: 15 }}>
+              <Text>{item.dsc}</Text>
+
+          </View>
+
+          <View style={{ marginTop: 10, marginBottom: 10 }}>
+              <Text style={{ color: '#0087d1' }}> {item.link} </Text>
+
+          </View>
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
+              <Text>{/*item.likes.length*/}</Text>
+              <Text>{/*item.comments.length*/} Yorum</Text>
+          </View>
+
+          <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
+              <Text>Beğen </Text>
+              <Text>Kaydet</Text>
+          </View>
+
+
+
+      </View>
+
+  )
+
     return (
 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
 
-        
+
 
             <FlatList
                 style={{ flex: 1 }}
-                data={DATA}
+                data={props.list}
                 renderItem={renderItem}
                 keyExtractor={item => item.user}
                 ListEmptyComponent={() => {
@@ -113,7 +98,7 @@ const FreeLessons = (props) => {
                             >
                                  Herhangi Bir Gönderi Bulunmamaktadır!
                             </Text>
-                            
+
                         </View>
                     )
                 }}
@@ -155,4 +140,9 @@ const styles = StyleSheet.create({
 
 
 
-export default FreeLessons;
+const mapStateToProps = ({ lessonResponse }) => {
+  const { list } = lessonResponse;
+  return { list };
+};
+
+export default connect(mapStateToProps, { getLessons })(FreeLessons);
