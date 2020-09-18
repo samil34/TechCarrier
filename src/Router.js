@@ -44,7 +44,6 @@ import Kaydedilenler from '../src/routers/Profile/Kaydedilenler';
 import OnlineCourses from '../src/routers/OnlineCourses/OnlineCourses'
 import RequestAndSuggestions from '../src/routers/RequestAndSuggestions/RequestAndSuggestion';
 import AskedQuestions from '../src/routers/AskedQuestions/AskedQuestions';
-import HelpCenter from '../src/routers/HelpCenter/HelpCenter';
 import Menu from '../src/routers/Menu/Menu';
 
 
@@ -440,7 +439,7 @@ function Router(props) {
                   options={({ navigation, route }) => ({
                     headerShown: false,
                   })} />
-                  
+
               </>
 
             ) :
