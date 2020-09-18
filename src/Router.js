@@ -181,6 +181,15 @@ const HomeStackScreen = () => {
         })}
       />
 
+<HomeStack.Screen
+        name="DetailScreen"
+        component={DetailScreen}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+
+        })}
+      />
+
       <HomeStack.Screen
         name="MostLikedPage"
         component={MostLikedPage}

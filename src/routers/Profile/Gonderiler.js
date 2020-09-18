@@ -28,19 +28,21 @@ const DATA = [
 const renderItem = ({ item }, props) => (
 
  <TouchableOpacity 
-        style={{ marginLeft: 15, marginRight: 15, marginTop: 15, flexDirection: 'row', alignItems: 'center' }}
+        style={{  backgroundColor:'', marginLeft: 15, marginRight: 15, marginTop: 15, flexDirection: 'row', alignItems: 'center' }}
         onPress= {() => {props.navigation.navigate('DetailScreen')}}
         >
  
-         {/* eğer paylaşım girişimcilik ise onun dışarıdan bir fotosunu koyacağız */}
+         {/* eğer paylaşım girişimcilik ise onun dışarıdan bir fotosunu koyacağız 
          <Image 
            style={{ borderWidth: 1, borderColor: 'gray', width: 50, height: 50, borderRadius: 7 }}
            source={require('../../img/girisim1.png')}
-           />
+           />*/}
          {/* Tıklamalı yazı linki olacak yada başka bir sayfa acılacak */}
- <Text style={{ marginLeft: 10, marginRight: 50 }}>{item.dsc}</Text>
+ <Text style={{  }}>{item.dsc}</Text>
  
+        <Text style= {{}}></Text>
       </TouchableOpacity>
+      
  );
 
 
