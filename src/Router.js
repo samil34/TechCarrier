@@ -13,6 +13,7 @@ import { colors } from '../src/style'
 //-------> SCREENS <-------\\
 import LoadingScreen from '../src/routers/Loading/LoadingScreen';
 import FirstScreen from '../src/routers/Auth/FirstScreen';
+import SplashScreen from '../src/routers/Splash'
 import LoginScreen from '../src/routers/Auth/LoginScreen';
 import SignUpScreen from '../src/routers/Auth/SignUpScreen';
 
@@ -99,7 +100,7 @@ const logo = (navigation) => {
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => {
   return (
-    <AuthStack.Navigator initialRouteName='FirstScreen'>
+    <AuthStack.Navigator initialRouteName='SplashScreen'>
       <AuthStack.Screen
         name="FirstScreen"
         component={FirstScreen}
@@ -108,7 +109,14 @@ const AuthStackScreen = () => {
           headerShown: false
         })}
       />
-
+<AuthStack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={({ navigation, route }) => ({
+          title: 'Login',
+          headerShown: false
+        })}
+      />
       <AuthStack.Screen
         name="LoginScreen"
         component={LoginScreen}

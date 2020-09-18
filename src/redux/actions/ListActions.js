@@ -30,6 +30,7 @@ export const getList = () => {
   }
 }
 
+
 export const addPost = (params) => {
   return (dispatch) => {
     firestore()
