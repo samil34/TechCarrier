@@ -88,7 +88,6 @@ const renderItem = ({ item }) => (
 
         <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
             <Text>Beğen </Text>
-            <Text>Yorum yap</Text>
             <Text>Kaydet</Text>
         </View>
 
@@ -125,7 +124,7 @@ const OnlineCourse = (props) => {
                             <Text
                                 style={{ fontSize: 15, marginBottom: 30 }}
                             >
-                                List is empty now. Start adding tasks!
+                                Herhangi Bir Gönderi Bulunmamaktadır!
                             </Text>
                             
                         </View>
@@ -134,15 +133,11 @@ const OnlineCourse = (props) => {
             />
 
 
-
-
-
-
             <Fab
                 containerStyle={{}}
                 style={{ backgroundColor: colors.main }}
                 position="bottomRight"
-                onPress={() => { props.navigation.navigate('HomeSubmit') }}>
+                onPress={() => { props.navigation.navigate('CourseSubmit') }}>
                 <Icon name="pencil" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
             </Fab>
 
