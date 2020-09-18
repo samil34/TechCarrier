@@ -5,7 +5,7 @@ import { Button, Input } from '../../components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors } from '../../style';
 
-import { addPost } from '../../redux/actions';
+import { addCourse } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 
@@ -24,12 +24,12 @@ const CourseSubmit = (props) => {
             <View style={{ backgroundColor:'', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',padding:15 }}>
                 <Text onPress={() => props.navigation.pop()} style={{ color: colors.main, fontWeight:'bold', fontSize: 16 }}>Vazgeç</Text>
                 {/* <Icon onPress={()=> {props.navigation.pop()}} name={'times'} size={30} color={colors.main} /> */}
-                
-                
+
+
                 <Text
                     style={{ borderWidth:1,borderColor:'gray', padding:10, borderRadius:20, backgroundColor: colors.main, color:'white', fontWeight:'bold', fontSize: 16 }}
                     onPress={() => {
-                        props.addPost({
+                        props.addCourse({
                             "user": { "name": "Mukaddes", "rozet": "Rozet ismi 3. gun" },
                             "dsc": aciklama,
                             "category": kategori,
@@ -37,7 +37,7 @@ const CourseSubmit = (props) => {
                             "likes": 0,
                         })
                     }}
-                    
+
                 >Gönder</Text>
 
 
@@ -66,6 +66,7 @@ const CourseSubmit = (props) => {
 
                 <TextInput
                   style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray',height:100, borderRadius:20,fontSize:15,paddingLeft:10  }}
+                        onChangeText={(aciklama) => setAciklama(aciklama)}
                         underlineColorAndroid="transparent"
                         placeholder={"Eğitim hakkında bilgi veriniz..."}
                         placeholderTextColor={"#9E9E9E"}
@@ -81,6 +82,7 @@ const CourseSubmit = (props) => {
 
                 <TextInput
                   style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray', borderRadius:20,fontSize:15,paddingLeft:10 }}
+                  onChangeText={(link) => setLink(link)}
                   placeholder={"Link Gönder..."}
                 />
 
@@ -107,15 +109,10 @@ const styles = StyleSheet.create({
 });
 
 
-const mapStateToProps = ({ listResponse }) => {
-    const { loading, list } = listResponse;
+const mapStateToProps = ({ courseResponse }) => {
+    const { loading, list } = courseResponse;
     return { loading, list };
 };
 
 
-export default connect(mapStateToProps, { addPost })(CourseSubmit);
-
-
-
-
-
+export default connect(mapStateToProps, { addCourse })(CourseSubmit);

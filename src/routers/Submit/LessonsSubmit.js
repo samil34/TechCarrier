@@ -5,7 +5,7 @@ import { Button, Input } from '../../components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors } from '../../style';
 
-import { addPost } from '../../redux/actions';
+import { addLesson } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 
@@ -29,7 +29,7 @@ const LessonsSubmit = (props) => {
                 <Text
                     style={{ borderWidth: 1, borderColor: 'gray', padding: 10, borderRadius: 20, backgroundColor: colors.main, color: 'white', fontWeight: 'bold', fontSize: 16 }}
                     onPress={() => {
-                        props.addPost({
+                        props.addLesson({
                             "user": { "name": "Mukaddes", "rozet": "Rozet ismi 3. gun" },
                             "dsc": aciklama,
                             "category": kategori,
@@ -62,6 +62,7 @@ const LessonsSubmit = (props) => {
 
                     <TextInput
                         style={{ backgroundColor: 'white', borderWidth: 0.5, borderColor: 'gray', height: 100, borderRadius: 20, fontSize: 15, paddingLeft: 10 }}
+                        onChangeText={(aciklama) => setAciklama(aciklama)}
                         underlineColorAndroid="transparent"
                         placeholder={"Dersin İçeriğini giriniz..."}
                         placeholderTextColor={"#9E9E9E"}
@@ -80,6 +81,7 @@ const LessonsSubmit = (props) => {
 
                     <TextInput
                         style={{ backgroundColor: 'white', borderWidth: 0.5, borderColor: 'gray', borderRadius: 20, fontSize: 15, paddingLeft: 10 }}
+                        onChangeText={(link) => setLink(link)}
                         placeholder={"Link Gönder..."}
                     />
 
@@ -123,12 +125,9 @@ const styles = StyleSheet.create({
 });
 
 
-const mapStateToProps = ({ listResponse }) => {
-    const { loading, list } = listResponse;
+const mapStateToProps = ({ lessonResponse }) => {
+    const { loading, list } = lessonResponse;
     return { loading, list };
 };
 
-export default connect(mapStateToProps, { addPost })(LessonsSubmit);
-
-
-
+export default connect(mapStateToProps, { addLesson })(LessonsSubmit);
