@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { connect } from 'react-redux';
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import { navigationRef } from './RootNavigation';
 
 import { colors } from '../src/style'
@@ -19,15 +19,19 @@ import SignUpScreen from '../src/routers/Auth/SignUpScreen';
 import HomeSubmit from '../src/routers/Submit/HomeSubmit';
 import HomeScreen from '../src/routers/Home/HomeScreen';
 import OnlineCourse from '../src/routers/Home/OnlineCourse';
+import CourseSubmit from '../src/routers/Submit/CourseSubmit';
 
 import ProfileScreen from '../src/routers/Profile/ProfileScreen';
 import Settings from '../src/routers/Profile/Settings';
 import Edit from '../src/routers/Profile/Edit';
 import Biyografi from '../src/routers/Profile/Biyografi';
 
+
+
 import MostLikedPage from '../src/routers/MostLiked/MostLikedPage';
 import Search from '../src/routers/Search/Search';
 import FreeLessons from '../src/routers/Home/FreeLessons';
+import LessonsSubmit from '../src/routers/Submit/LessonsSubmit';
 import SearchCategory from '../src/routers/Search/SearchCategory';
 import DetailScreen from '../src/routers/Profile/DetailScreen';
 import Gonderiler from '../src/routers/Profile/Gonderiler';
@@ -53,11 +57,11 @@ const menu = (navigation) => {
         marginLeft: 10
       }}
     >
-      <View style={{borderWidth:0.2,width: 40, height: 40 , borderRadius:25, justifyContent:'center',alignItems:'center'}}>
-      <Image
-        source={require('./img/foto.png')}
-        style={{  width: 40, height: 40, borderRadius:25 }}
-      />
+      <View style={{ borderWidth: 0.2, width: 40, height: 40, borderRadius: 25, justifyContent: 'center', alignItems: 'center' }}>
+        <Image
+          source={require('./img/foto.png')}
+          style={{ width: 40, height: 40, borderRadius: 25 }}
+        />
       </View>
 
 
@@ -133,11 +137,11 @@ const HomeStackScreen = () => {
 
 
 
-<HomeStack.Screen
+      <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
         options={({ navigation, route }) => ({
-          title:'TechCareer',
+          title: 'TechCareer',
           headerLeft: () => menu(navigation),
           headerRight: () => logo(navigation)
         })}
@@ -177,9 +181,22 @@ const HomeStackScreen = () => {
         })}
       />
 
+      <HomeStack.Screen
+        name="MostLikedPage"
+        component={MostLikedPage}
+        options={({ navigation, route }) => ({
+          title: 'Popüler Gönderiler',
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+
+        })}
+      />
+
     </HomeStack.Navigator>
   );
 };
+
+
 
 const SearchStack = createStackNavigator();
 const SearchStackScreen = () => {
@@ -198,6 +215,7 @@ const SearchStackScreen = () => {
         name="SearchCategory"
         component={SearchCategory}
         options={({ navigation, route }) => ({
+          title: 'Arama Sonucu',
           headerLeft: () => menu(navigation),
           headerRight: () => logo(navigation),
         })} />
@@ -208,23 +226,6 @@ const SearchStackScreen = () => {
 };
 
 
-const MostLikedStack = createStackNavigator();
-const MostLikedStackScreen = () => {
-  return (
-    <MostLikedStack.Navigator>
-
-      <MostLikedStack.Screen
-        name="MostLikedPage"
-        component={MostLikedPage}
-        options={({ navigation, route }) => ({
-          headerLeft: () => menu(navigation),
-          headerRight: () => logo(navigation),
-        })} />
-
-    </MostLikedStack.Navigator>
-
-  );
-};
 
 
 const FreeLessonsStack = createStackNavigator();
@@ -232,12 +233,22 @@ const FreeLessonsStackScreen = () => {
   return (
     <FreeLessonsStack.Navigator>
       <FreeLessonsStack.Screen
-        name="Ücretsiz Dersler"
+        name="FreeLessons"
         component={FreeLessons}
         options={({ navigation, route }) => ({
+          title: 'Ücretsiz Dersler',
           headerLeft: () => menu(navigation),
           headerRight: () => logo(navigation),
         })} />
+
+
+      <FreeLessonsStack.Screen
+        name="LessonsSubmit"
+        component={LessonsSubmit}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+        })} />
+
 
     </FreeLessonsStack.Navigator>
 
@@ -251,11 +262,20 @@ const OnlineCourseStackScreen = () => {
     <OnlineCourseStack.Navigator>
 
       <OnlineCourseStack.Screen
-        name="Online Eğitimler"
+        name="OnlineCourse"
         component={OnlineCourse}
         options={({ navigation, route }) => ({
+          title: 'Online Eğitimler',
           headerLeft: () => menu(navigation),
           headerRight: () => logo(navigation),
+        })} />
+
+      <OnlineCourseStack.Screen
+        name="CourseSubmit"
+        component={CourseSubmit}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+
         })} />
 
     </OnlineCourseStack.Navigator>
@@ -274,13 +294,11 @@ const TabStackScreen = () => {
           let iconName;
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'mos') {
-            iconName = 'bell';
           } else if (route.name === 'Search') {
             iconName = 'search';
           } else if (route.name === 'Free') {
             iconName = 'book'
-          }else if (route.name == 'Course') {
+          } else if (route.name == 'Course') {
             iconName = 'calendar'
           }
 
@@ -301,7 +319,7 @@ const TabStackScreen = () => {
       <TabStack.Screen name="Course" component={OnlineCourseStackScreen} />
       <TabStack.Screen name="Free" component={FreeLessonsStackScreen} />
       <TabStack.Screen name="Search" component={SearchStackScreen} />
-      <TabStack.Screen name="mos" component={MostLikedStackScreen} />
+
 
     </TabStack.Navigator>
   );

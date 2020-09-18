@@ -111,7 +111,7 @@ const FreeLessons = (props) => {
                             <Text
                                 style={{ fontSize: 15, marginBottom: 30 }}
                             >
-                                List is empty now. Start adding tasks!
+                                 Herhangi Bir Gönderi Bulunmamaktadır!
                             </Text>
                             
                         </View>
@@ -125,7 +125,7 @@ const FreeLessons = (props) => {
                 containerStyle={{}}
                 style={{ backgroundColor: colors.main }}
                 position="bottomRight"
-                onPress={() => { props.navigation.navigate('HomeSubmit') }}>
+                onPress={() => { props.navigation.navigate('LessonsSubmit') }}>
                 <Icon name="pencil" type='FontAwesome' style={{ fontSize: 20, color: 'white' }} />
             </Fab>
 

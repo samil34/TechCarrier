@@ -9,7 +9,7 @@ import { addPost } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 
-const HomeSubmit = (props) => {
+const CourseSubmit = (props) => {
 
 
     const [kategori, setKategori] = useState('Teknoloji')
@@ -46,18 +46,17 @@ const HomeSubmit = (props) => {
 
             <View style={{ flex: 12, padding: 10 }}>
              <View>
-                 <Text style= {{marginBottom:5}}>Paylaşımın Konu Başlığı!</Text>
+                 <Text style= {{marginBottom:5}}>Online eğitimin düzenleneceği platformu seçiniz!</Text>
              </View>
-             <View style={styles.container}>
+            <View style={styles.container}>
                     <Picker
                         selectedValue={kategori}
                         style={{ height: 50, width: 145 }}
                         onValueChange={(kategori, itemIndex) => setKategori(kategori)}
                     >
-                        <Picker.Item label="Teknoloji" value="Teknoloji" />
-                        <Picker.Item label="Girişimcilik" value="Girişimcilik" />
-                        <Picker.Item label="Kariyer" value="Kariyer" />
-                        <Picker.Item label="Diğer" value="Diğer" />
+                        <Picker.Item label="Youtube" value="Youtube" />
+                        <Picker.Item label="Zoom" value="Zoom" />
+                        <Picker.Item label="Diğer Platform" value="Diğer Platform" />
                     </Picker>
                 </View>
 
@@ -68,7 +67,7 @@ const HomeSubmit = (props) => {
                 <TextInput
                   style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray',height:100, borderRadius:20,fontSize:15,paddingLeft:10  }}
                         underlineColorAndroid="transparent"
-                        placeholder={"Kısaca Açıklayınız..."}
+                        placeholder={"Eğitim hakkında bilgi veriniz..."}
                         placeholderTextColor={"#9E9E9E"}
                         numberOfLines={30}
                         multiline={true}
@@ -114,7 +113,7 @@ const mapStateToProps = ({ listResponse }) => {
 };
 
 
-export default connect(mapStateToProps, { addPost })(HomeSubmit);
+export default connect(mapStateToProps, { addPost })(CourseSubmit);
 
 
 

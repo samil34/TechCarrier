@@ -65,12 +65,11 @@ const HomeScreen = (props) => {
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
                     <Text>{item.likes.length}</Text>
-                    <Text>{item.comments.length} yorum</Text>
+                    {/* <Text>{item.comments.length} Kaydet</Text> */}
                 </View>
 
                 <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
                     <Text>Beğen </Text>
-                    <Text>Yorum yap</Text>
                     <Text>Kaydet</Text>
                 </View>
 
@@ -101,7 +100,7 @@ const HomeScreen = (props) => {
                             <Text
                                 style={{ fontSize: 15, marginBottom: 30 }}
                             >
-                            List is empty now. Start adding tasks!
+                             Herhangi Bir Gönderi Bulunmamaktadır!
                             </Text>
                         </View>
                     )
