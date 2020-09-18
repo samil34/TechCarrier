@@ -39,35 +39,3 @@ export default class Splash extends Component {
     );
   }
 }
-
-/*import React, {useEffect} from 'react';
-import {Text, View, Image} from 'react-native';
-import Animated from 'react-native-reanimated';
-import SpinningImage from 'react-native-spinning-image';
-const imageSource = require('../img/logo2.png');
-const SplashScreen = ({navigation}) => {
-  useEffect(() => {
-    /*setTimeout(() => {
-      navigation.navigate('FirstScreen');
-    }, 3000);
-  });
-  return (
-    <View
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <SpinningImage
-        speed={3000}
-        rotations={5}
-        direction="counter"
-        source={imageSource}
-      />
-    </View>
-  );
-};
-
-export default SplashScreen;*/
