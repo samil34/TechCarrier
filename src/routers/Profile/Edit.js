@@ -88,10 +88,7 @@ const
 
 
                             <View style={{ height: 45, width: '50%', marginBottom: 15 }}>
-                                <Text >Biyografi</Text>
-                                <Text >Biyografi</Text>
-                                <Text >Biyografi</Text>
-
+                                <Text></Text>
 
                             </View>
                         </View>

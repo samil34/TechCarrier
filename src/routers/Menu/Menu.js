@@ -18,7 +18,7 @@ const Menu = (props) => {
     }
 
     const selectPhoto = () => {
-        props.navigation.navigate('ProfileScreen');
+        props.navigation.navigate('ProfileStackScreen');
     }
 
 
@@ -60,17 +60,17 @@ const Menu = (props) => {
             <View style={{ flex: 7 }}>
                 <ScrollView style={{ backgroundColor: '' }}>
                     <View style={{ backgroundColor: '', padding: 20 }}>
-                        {sections('user', 'Profil', () =>  {  props.navigation.navigate('ProfileScreen') })}
+                        {sections('user', 'Profil', () =>  {  props.navigation.navigate('ProfileStackScreen') })}
 
                         {sections('list-alt', 'Popüler Gönderiler', () =>  {  props.navigation.navigate('MostLikedPage') })}
-                        {sections('question-circle', 'Sık Sorulan Sorular')}
+                        {sections('question-circle', 'Sık Sorulan Sorular' , () =>  {  props.navigation.navigate('AskedQuestions') })}
                         {/* {sections('bolt', 'Anlar')}
                         {sections('id-badge', 'Takipçi İstekleri') } */}
                     </View>
 
                     <View style={{ backgroundColor: 'black', height: 0.5, width: '100%', marginBottom: 20 }} />
 
-                    {sections(null, 'Yardım/İletişim')}
+                    {sections(null, 'Yardım/İletişim', () =>  {  props.navigation.navigate('HelpScreen') })}
                     {/*sections(null, 'Çıkış', () => props.signOut())*/}
                     {/* {sections(null, 'Yardım Merkezi',
 

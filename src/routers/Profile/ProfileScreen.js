@@ -1,4 +1,4 @@
-/*This is an Example to make a View Like Android Fragment in React Native*/
+
 import * as React from 'react';
 import { useState } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
@@ -44,8 +44,7 @@ const ProfileScreen = (props) => {
                         <View style={{ marginLeft: 130, marginTop: 10, marginRight: 130 }}>
                             <Text style={{ color: 'white' }}>Kişi Bilgisi yazılacak</Text>
                             <Text style={{ color: 'white' }}>Kişi Bilgisi yazılacak</Text>
-                            <Text style={{ color: 'white' }}>Kişi Bilgisi yazılacak</Text>
-                            <Text style={{ color: 'white' }}>Kişi Bilgisi yazılacak</Text>
+                            
 
 
 

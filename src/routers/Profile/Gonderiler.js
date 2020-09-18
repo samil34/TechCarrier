@@ -25,35 +25,84 @@ const DATA = [
 ];
 
 
-const renderItem = ({ item }, props) => (
+const renderItem = ({ item }, props) => {
+  
+    return(
 
- <TouchableOpacity 
-        style={{  backgroundColor:'', marginLeft: 15, marginRight: 15, marginTop: 15, flexDirection: 'row', alignItems: 'center' }}
-        onPress= {() => {props.navigation.navigate('DetailScreen')}}
-        >
- 
-         {/* eğer paylaşım girişimcilik ise onun dışarıdan bir fotosunu koyacağız 
-         <Image 
-           style={{ borderWidth: 1, borderColor: 'gray', width: 50, height: 50, borderRadius: 7 }}
-           source={require('../../img/girisim1.png')}
-           />*/}
-         {/* Tıklamalı yazı linki olacak yada başka bir sayfa acılacak */}
- <Text style={{  }}>{item.dsc}</Text>
- 
-        <Text style= {{}}></Text>
-      </TouchableOpacity>
-      
- );
+        <View style={styles.item}>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+               <View>
+               <View
+                style={{ flexDirection: 'row' }}
+                
+                >
+
+                    <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
+                        <Text>foto</Text>
+                    </View>
+
+
+                <View style={{ justifyContent: 'center' }}>
+                    <Text>  {item.user.name}</Text>
+                    <Text>  {item.user.rozet}</Text>
+                </View>
+
+                </View>
+               </View>
+
+
+
+
+
+            <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 10, backgroundColor: '#a9d1f1', width: '25%', justifyContent: 'center', alignItems: 'center' }}>
+             <Text>{item.category}</Text>
+            </View>
+
+        </View>
+
+
+
+        <View style={{ marginTop: 15, marginBottom: 5 }}>
+          <Text>{item.dsc}</Text>
+
+        </View>
+
+        <View style={{ marginTop: 10, marginBottom: 8 }}>
+            <Text style={{ color: '#0087d1' }}> {item.link} </Text>
+
+        </View>
+
+        
+
+        <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
+        <View style = {{flexDirection:'row'}}>
+            <Text>{item.likes.length}</Text>
+            <Text style ={{marginLeft:10}}>Beğen </Text>
+            
+            </View>
+            
+        </View>
+
+
+
+    </View>
+
+
+    );
+        };
 
 
 
   const Gonderiler = (props) => {
-    console.log('props içindekiler: ', props);
+    //console.log('props içindekiler: ', props);
 
+    
     return (
 
     
-<View style={{ flex: 1, backgroundColor: '#ffffff', marginBottom: 25}}>
+<View style={{ flex: 1, backgroundColor: '#ffffff'}}>
 
 
 <FlatList
@@ -89,5 +138,24 @@ const renderItem = ({ item }, props) => (
     )
   
 }
+
+
+const styles = StyleSheet.create({
+
+    item: {
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderWidth: 0.5,
+        borderRadius: 25,
+        borderColor: 'gray',
+        backgroundColor: '#ffffff',
+
+
+
+    },
+
+
+});
 
 export default Gonderiler;

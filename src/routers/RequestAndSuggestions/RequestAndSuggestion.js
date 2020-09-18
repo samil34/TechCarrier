@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const RequestAndSuggestions = () =>{ 
+const RequestAndSuggestion = () =>{ 
     return(
         <View>
         <Text>İstek ve Öneriler</Text>
@@ -10,4 +10,4 @@ const RequestAndSuggestions = () =>{
    
 }
 
-export default RequestAndSuggestions;
+export default RequestAndSuggestion;

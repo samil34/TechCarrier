@@ -27,6 +27,7 @@ import Settings from '../src/routers/Profile/Settings';
 import Edit from '../src/routers/Profile/Edit';
 import Biyografi from '../src/routers/Profile/Biyografi';
 
+import HelpScreen from '../src/routers/Help/HelpScreen';
 
 
 import MostLikedPage from '../src/routers/MostLiked/MostLikedPage';
@@ -36,7 +37,7 @@ import LessonsSubmit from '../src/routers/Submit/LessonsSubmit';
 import SearchCategory from '../src/routers/Search/SearchCategory';
 import DetailScreen from '../src/routers/Profile/DetailScreen';
 import Gonderiler from '../src/routers/Profile/Gonderiler';
-import ProfileScreens from './routers/Profile/ProfileScreen';
+
 import Rozet from '../src/routers/Profile/Rozet';
 import Kaydedilenler from '../src/routers/Profile/Kaydedilenler';
 
@@ -109,7 +110,7 @@ const AuthStackScreen = () => {
           headerShown: false
         })}
       />
-<AuthStack.Screen
+      <AuthStack.Screen
         name="SplashScreen"
         component={SplashScreen}
         options={({ navigation, route }) => ({
@@ -138,12 +139,84 @@ const AuthStackScreen = () => {
   )
 }
 
+const ProfileStack = createStackNavigator();
+const ProfileStackScreen = () => {
+
+  return (
+
+    <ProfileStack.Navigator>
+
+      <ProfileStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+
+        })}
+      />
+
+      <ProfileStack.Screen
+        name="Edit"
+        component={Edit}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+        })}
+      />
+
+      <ProfileStack.Screen
+        name="Biyografi"
+        component={Biyografi}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+
+        })}
+      />
+
+
+
+      <ProfileStack.Screen
+        name="Gonderiler"
+        component={Gonderiler}
+        options={({ navigation, route }) => ({
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+
+        })}
+      />
+
+      <ProfileStack.Screen
+        name="Kaydedilenler"
+        component={Kaydedilenler}
+        options={({ navigation, route }) => ({
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+
+        })}
+      />
+
+      <ProfileStack.Screen
+        name="Rozet"
+        component={Rozet}
+        options={({ navigation, route }) => ({
+          headerLeft: () => menu(navigation),
+          headerRight: () => logo(navigation),
+
+        })}
+      />
+
+
+
+    </ProfileStack.Navigator>
+
+  );
+
+}
+
+
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator>
-
-
 
       <HomeStack.Screen
         name="HomeScreen"
@@ -155,48 +228,9 @@ const HomeStackScreen = () => {
         })}
       />
 
-      <HomeStack.Screen
-        name="HomeSubmit"
-        component={HomeSubmit}
-        options={({ navigation, route }) => ({
-          headerShown: false,
-        })}
-      />
 
-      <HomeStack.Screen
-        name="ProfileScreen"
-        component={ProfileScreen}
-        options={({ navigation, route }) => ({
-          headerShown: false,
 
-        })}
-      />
 
-      <HomeStack.Screen
-        name="Edit"
-        component={Edit}
-        options={({ navigation, route }) => ({
-          headerShown: false,
-        })}
-      />
-
-      <HomeStack.Screen
-        name="Biyografi"
-        component={Biyografi}
-        options={({ navigation, route }) => ({
-          headerShown: false,
-
-        })}
-      />
-
-<HomeStack.Screen
-        name="DetailScreen"
-        component={DetailScreen}
-        options={({ navigation, route }) => ({
-          headerShown: false,
-
-        })}
-      />
 
       <HomeStack.Screen
         name="MostLikedPage"
@@ -259,12 +293,7 @@ const FreeLessonsStackScreen = () => {
         })} />
 
 
-      <FreeLessonsStack.Screen
-        name="LessonsSubmit"
-        component={LessonsSubmit}
-        options={({ navigation, route }) => ({
-          headerShown: false,
-        })} />
+
 
 
     </FreeLessonsStack.Navigator>
@@ -287,13 +316,7 @@ const OnlineCourseStackScreen = () => {
           headerRight: () => logo(navigation),
         })} />
 
-      <OnlineCourseStack.Screen
-        name="CourseSubmit"
-        component={CourseSubmit}
-        options={({ navigation, route }) => ({
-          headerShown: false,
 
-        })} />
 
     </OnlineCourseStack.Navigator>
 
@@ -346,6 +369,9 @@ const TabStackScreen = () => {
 const DrawerStack = createDrawerNavigator();
 const DrawerStackScreen = () => {
   return (
+
+
+
     <DrawerStack.Navigator
       drawerContent={Menu}
       drawerType="back"
@@ -354,7 +380,10 @@ const DrawerStackScreen = () => {
       }}
     >
       <DrawerStack.Screen name="TechCarier" component={TabStackScreen} />
+      <DrawerStack.Screen name="ProfileStackScreen" component={ProfileStackScreen} />
     </DrawerStack.Navigator>
+
+
   );
 };
 
@@ -375,6 +404,43 @@ function Router(props) {
                     animationEnabled: false
                   }}
                 />
+
+                <RootStack.Screen
+                  name="HomeSubmit"
+                  component={HomeSubmit}
+                  options={({ navigation, route }) => ({
+                    headerShown: false,
+                  })}
+                />
+
+                <RootStack.Screen
+                  name="CourseSubmit"
+                  component={CourseSubmit}
+                  options={({ navigation, route }) => ({
+                    headerShown: false,
+
+                  })} />
+
+                <RootStack.Screen
+                  name="LessonsSubmit"
+                  component={LessonsSubmit}
+                  options={({ navigation, route }) => ({
+                    headerShown: false,
+                  })} />
+
+                <RootStack.Screen
+                  name="HelpScreen"
+                  component={HelpScreen}
+                  options={({ navigation, route }) => ({
+                    headerShown: false,
+                  })} />
+                  <RootStack.Screen
+                  name="AskedQuestions"
+                  component={AskedQuestions}
+                  options={({ navigation, route }) => ({
+                    headerShown: false,
+                  })} />
+                  
               </>
 
             ) :

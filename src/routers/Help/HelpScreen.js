@@ -1,12 +1,120 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState } from 'react'
+import { Platform, Text, View, SafeAreaView, ScrollView, Keyboard,Picker, StyleSheet, TextInput } from 'react-native'
 
-const HelpScreen = ({
-    params,
-}) => (
-    <View>
-        <Text>HelpScreen</Text>
-    </View>
-);
- 
-export default HelpScreen;
+import { Button, Input } from '../../components';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { colors } from '../../style';
+
+import { addCourse } from '../../redux/actions';
+import { connect } from 'react-redux';
+
+
+const HelpScreen = (props) => {
+
+
+    const [kategori, setKategori] = useState('Teknoloji')
+    const [aciklama, setAciklama] = useState('')
+    const [link, setLink] = useState('')
+
+
+
+    return (
+        <SafeAreaView style={{ flex: 1,backgroundColor:'#f5f5f5' }}>
+
+            <View style={{ backgroundColor:'', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',padding:15 }}>
+                <Text onPress={() => props.navigation.pop()} style={{ color: colors.main, fontWeight:'bold', fontSize: 16 }}>Vazgeç</Text>
+                {/* <Icon onPress={()=> {props.navigation.pop()}} name={'times'} size={30} color={colors.main} /> */}
+
+
+                <Text
+                    style={{ borderWidth:1,borderColor:'gray', padding:10, borderRadius:20, backgroundColor: colors.main, color:'white', fontWeight:'bold', fontSize: 16 }}
+                    onPress={() => {
+                        props.addCourse({
+                            "user": { "name": "Mukaddes", "rozet": "Rozet ismi 3. gun" },
+                            "dsc": aciklama,
+                            "category": kategori,
+                            "link": link,
+                            "likes": 0,
+                        })
+                    }}
+
+                >Gönder</Text>
+
+
+            </View>
+
+
+            <View style={{ flex: 12, padding: 10 }}>
+             <View>
+                 <Text style= {{marginBottom:5}}>Yardım Almak veya iletişime geçmek istediğiniz konu ile ilgili mesajınızı yazınız.</Text>
+             </View>
+            <View style={styles.container}>
+                    <Picker
+                        selectedValue={kategori}
+                        style={{ height: 50, width: 230 }}
+                        onValueChange={(kategori, itemIndex) => setKategori(kategori)}
+                    >
+                        <Picker.Item label="Sorun Yaşıyorum" value="YoutSorun Yaşıyorumube" />
+                        <Picker.Item label="Soru Sormak İstiyorum" value="Soru Sormak İstiyorum" />
+                        <Picker.Item label="Önerim Var" value="Önerim Var" />
+                    </Picker>
+                </View>
+
+
+
+                <View style={{ backgroundColor:''}}>
+
+                <TextInput
+                  style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray',height:100, borderRadius:20,fontSize:15,paddingLeft:10  }}
+                        onChangeText={(aciklama) => setAciklama(aciklama)}
+                        underlineColorAndroid="transparent"
+                        placeholder={"Mesajınızı Girin..."}
+                        placeholderTextColor={"#9E9E9E"}
+                        numberOfLines={30}
+                        multiline={true}
+                        autoFocus
+                />
+
+
+                </View>
+
+                <View style={{ marginTop:10 }}>
+
+                <TextInput
+                  style= {{  backgroundColor: 'white',borderWidth:0.5,borderColor:'gray', borderRadius:20,fontSize:15,paddingLeft:10 }}
+                  onChangeText={(link) => setLink(link)}
+                  placeholder={"E-posta adresiniz..."}
+                />
+
+                </View>
+
+            </View>
+
+        </SafeAreaView>
+
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        borderWidth: 0.5,
+        borderColor:'gray',
+        borderRadius:20,
+        backgroundColor:'white',
+        width: '59%',
+        marginBottom:10,
+        paddingLeft:5
+
+    }
+});
+
+
+const mapStateToProps = ({ courseResponse }) => {
+    const { loading, list } = courseResponse;
+    return { loading, list };
+};
+
+
+export default connect(mapStateToProps, { addCourse })(HelpScreen);
+
+

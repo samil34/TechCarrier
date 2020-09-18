@@ -1,116 +1,96 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Image,TouchableOpacity, FlatList } from 'react-native';
 
+const tech = "../../img/tech5png.png";
+
+
+
+
 
 const Data = [
     {
       "id":"1",
-      "user":{"name":"Eren Tanrıverdioğlu", "rozet":"Pro . 1 gun"},
       "dsc":"Burada Yeni",
-      "category":"Girisimcilik",
-      "link":"Yeni",
-      "likes":["samil","mukaddes"],
-      "comments":["samil","mukaddes","onur","ali"]
+      "badge":require( '../../img/start2.png' )
+      
   },
   {
     "id":"2",
-    "user":{"name":"Eren Tanrıverdioğlu", "rozet":"Pro . 1 gun"},
     "dsc":"Paylaşımcı",
-    "category":"Girisimcilik",
-    "link":"Yeni",
-    "likes":["samil","mukaddes"],
-    "comments":["samil","mukaddes","onur","ali"]
+    "badge":require( '../../img/begen.png' )
+    
 },
   {
       "id":"3",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Girişimci",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"]
+      "badge":require( '../../img/girisim1.png' )
+      
   },
   {
       "id":"4",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Teknoloji Sever",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"],
-      "image":""
-  },
+      "badge":require( '../../img/tech5png.png' )
+
+  },  
   {
       "id":"5",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Kariyer Sahibi",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"]
+      "badge":require( '../../img/carriers.png' )
+      
   },
   {
       "id":"6",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Beğenilen",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"]
+      "badge":require( '../../img/begen.jpg' )
+     
   },
   {
       "id":"7",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Kurs Bulucu",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"]
+      "badge":require( '../../img/tech5png.png' )
+    
   },
   {
       "id":"8",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Mentor",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"]
+      "badge":require( '../../img/tech5png.png' )
+      
   },
   {
       "id":"9",
-      "user":{"name":"Şamil Akpınar", "rozet":"Yeni . 12 sa"},
       "dsc":"Sektörde Pro",
-      "category":"Girimcilik",
-      "link":"Pro",
-      "likes":["eren","onur","mukaddes"],
-      "comments":["eren","onur"],
+      "badge":require( '../../img/tech5png.png' )
+    
       
   }
 ];
 
 
-const renderItem = ({ item }, props) => (
 
-  // console.log('item içindekiler: ', item),
+
+const renderItem = ({ item }, props) => {
+
+   console.log('item içindekiler: ', typeof(item.badge))
+   return(
  <View
         style={{ marginLeft: 15, marginRight: 15, marginTop: 15, flexDirection: 'row', alignItems: 'center' }}
        
         >
-        <View style={{ borderWidth: 1, borderColor: 'gray', width: 50, height: 50, borderRadius: 25, backgroundColor:'red', justifyContent:'center', alignItems:'center'}}>
+        <View style={{   width: 50, height: 50, borderRadius: 25, backgroundColor:'', justifyContent:'center', alignItems:'center'}}>
+        
         <Image 
            
-           source={require('../../img/girisim1.png')}
+           source={item.badge}
            style={{width:36,height:36}}
            />
 
         </View>
-         {/* eğer paylaşım girişimcilik ise onun dışarıdan bir fotosunu koyacağız */}
          
-         {/* Tıklamalı yazı linki olacak yada başka bir sayfa acılacak */}
  <Text style={{ marginLeft: 10, marginRight: 50 }}>{item.dsc}</Text>
  
       </View>
- );
+   )
+};
 
 
 
