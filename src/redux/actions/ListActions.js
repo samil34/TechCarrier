@@ -19,12 +19,10 @@ export const getList = () => {
       .collection('Posts')
       // .orderBy('createdDate', 'desc')
       .onSnapshot(posts => {
-        console.log('posts data:', posts);
         let data = [];
         posts.forEach((doc) => {
           data.push(doc.data())
         })
-        console.log('data: ', data);
         dispatch({ type: LIST_SUCCESS, payload: data });
       })
   }
@@ -37,12 +35,10 @@ export const addPost = (params) => {
     .collection('Posts')
     .add(params)
     .then((data) => {
-      console.log('Post added!', data);
       dispatch({ type: ADD_SUCCESS, payload: params })
       RootNavigation.pop()
     }).catch(() => {
       dispatch({ type: ADD_FAILED })
-      console.log('Post not add!');
     })
   }
 }

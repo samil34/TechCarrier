@@ -22,7 +22,6 @@ export const ADD_LESSON_START = 'add__lessonstart'
 export const ADD_LESSON_SUCCESS = 'add_lesson_success'
 export const ADD_LESSON_FAILED = 'add_lesson_failed'
 
-
 export const LOGIN_START = 'login_start'
 export const LOGIN_SUCCESS = 'login_success'
 export const LOGIN_FAILED = 'login_failed'
@@ -32,3 +31,11 @@ export const REGISTER_SUCCESS = 'register_success'
 export const REGISTER_FAILED = 'register_failed'
 
 export const SIGN_OUT_SUCCESS = 'sign_out_success'
+
+export const PROFILE_START = 'profile_start'
+export const PROFILE_SUCCESS = 'profile_success'
+export const PROFILE_FAILED = 'profile_failed'
+
+export const PROFILE_EDIT_START = 'profile_edit_start'
+export const PROFILE_EDIT_SUCCESS = 'profile_edit_success'
+export const PROFILE_EDIT_FAILED = 'profile_edit_failed'

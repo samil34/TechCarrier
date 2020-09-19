@@ -26,8 +26,6 @@ const Data = [
 
 const renderItem = ({ item }, props) => (
 
-    //console.log('item içindekiler: ', item),
-
     <TouchableOpacity
         style={{ marginLeft: 15, marginRight: 15, marginTop: 15, flexDirection: 'row', alignItems: 'center' }}
         onPress={() => { props.navigation.navigate('DetailScreen') }}

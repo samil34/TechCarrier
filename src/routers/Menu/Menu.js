@@ -71,7 +71,7 @@ const Menu = (props) => {
                     <View style={{ backgroundColor: 'black', height: 0.5, width: '100%', marginBottom: 20 }} />
 
                     {sections(null, 'Yardım/İletişim', () =>  {  props.navigation.navigate('HelpScreen') })}
-                    {/*sections(null, 'Çıkış', () => props.signOut())*/}
+                    {sections(null, 'Cikis Yap', () =>  {  props.navigation.navigate('SignOutStackScreen') })}
                     {/* {sections(null, 'Yardım Merkezi',
 
                     )} */}

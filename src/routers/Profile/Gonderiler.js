@@ -26,7 +26,7 @@ const DATA = [
 
 
 const renderItem = ({ item }, props) => {
-  
+
     return(
 
         <View style={styles.item}>
@@ -36,7 +36,7 @@ const renderItem = ({ item }, props) => {
                <View>
                <View
                 style={{ flexDirection: 'row' }}
-                
+
                 >
 
                     <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
@@ -74,15 +74,15 @@ const renderItem = ({ item }, props) => {
 
         </View>
 
-        
+
 
         <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
         <View style = {{flexDirection:'row'}}>
             <Text>{item.likes.length}</Text>
             <Text style ={{marginLeft:10}}>Beğen </Text>
-            
+
             </View>
-            
+
         </View>
 
 
@@ -96,24 +96,21 @@ const renderItem = ({ item }, props) => {
 
 
   const Gonderiler = (props) => {
-    //console.log('props içindekiler: ', props);
 
-    
     return (
 
-    
+
 <View style={{ flex: 1, backgroundColor: '#ffffff'}}>
 
 
 <FlatList
 
-  
+
     style={{ flex: 1 }}
     data={DATA}
     renderItem={(item) => renderItem(item, props)}
 
-    keyExtractor={item => item.id
-    }
+    keyExtractor={item => item.user.name}
     ListEmptyComponent={() => {
         return (
             <View style={{
@@ -136,7 +133,7 @@ const renderItem = ({ item }, props) => {
 
 
     )
-  
+
 }
 
 

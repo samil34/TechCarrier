@@ -84,7 +84,7 @@ const FreeLessons = (props) => {
                 style={{ flex: 1 }}
                 data={props.list}
                 renderItem={renderItem}
-                keyExtractor={item => item.user}
+                keyExtractor={item => item.link}
                 ListEmptyComponent={() => {
                     return (
                         <View style={{

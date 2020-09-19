@@ -21,7 +21,6 @@ export default class Splash extends Component {
   }
 
   render() {
-    //console.log("props",this.props.navigate("FirstScreen"))
     const imageSource = require('../img/logo2.png');
     const imageTextSource = require('../img/logo3.png');
     const spin = this.state.spinAnim.interpolate({

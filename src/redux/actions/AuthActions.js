@@ -25,7 +25,6 @@ export const login = (params) => {
         auth()
           .signInWithEmailAndPassword(params.email, params.password)
           .then((data) => {
-            console.log('signed in!', data);
             const uid = data.user._user.uid;
 
             firestore()
@@ -33,24 +32,19 @@ export const login = (params) => {
               .doc(uid)
               .get()
               .then((user) => {
-                console.log('Gelen data: ', user._data);
                 const userParams = {
                   ...user._data,
                   uid
                 }
                 dispatch({ type: LOGIN_SUCCESS, payload: userParams})
               }).catch((err) => {
-                console.log('Read Data error: ', err);
                 dispatch({ type: LOGIN_FAILED })
               })
           }).catch(error => {
             if (error.code === 'auth/invalid-email') {
-              console.log('That email address is invalid!');
             } else if (error.code === 'auth/user-not-found') {
-              console.log('That email address is invalid!');
               Alert.alert('Uyarı', 'Böyle bir kullanıcı bulunamadı!')
             }
-            console.log(error.code);
             dispatch({ type: LOGIN_FAILED })
           })
         } else {
@@ -76,22 +70,24 @@ export const register = (params) => {
               username: params.username,
               email: params.email,
               saved:[],
+              badges:[],
+              profilePic:null,
+              tel:null,
+              gender:null,
+              bio:'',
+              profilePic: imageURL,
             }
             firestore()
               .collection('Users')
               .doc(uid)
               .set(setData)
               .then(() => {
-                console.log('User added!');
                 RootNavigation.pop()
               }).catch(() => {
-                console.log('User not Add!');
               })
           }).catch(error => {
             if (error.code === 'auth/email-already-in-use') {
-              console.log('That email address is already in use!');
             }
-            console.log(error);
           });
         } else {
           Alert.alert('UYARI', 'Lütfen geçerli bir email yazınız!')
@@ -107,7 +103,6 @@ export const isUser = () => {
     dispatch({ type: LOGIN_START })
     auth().onAuthStateChanged((data) => {
       if(data) {
-        console.log('Gelen Değer:', data);
         const uid = data._user.uid;
         getUser(uid, dispatch)
       } else {
@@ -122,14 +117,13 @@ const getUser = (uid, dispatch) => {
     .collection('Users')
     .doc(uid)
     .get().then((user) => {
-      console.log('Gelen Data: ', user._data);
       const userParams = {
         ...user._data,
         uid
       }
+      console.log('user params: ',userParams)
       dispatch({ type: LOGIN_SUCCESS, payload: userParams })
     }).catch((err) => {
-      console.log('Read Data error: ', err);
       dispatch({ type: LOGIN_FAILED })
     })
 }

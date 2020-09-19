@@ -1,16 +1,28 @@
 
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import  Gonderiler from './Gonderiler'
 import Kaydedilenler from './Kaydedilenler';
-import  Rozet from './Rozet'
+import  Rozet from './Rozet';
+
+import { connect } from 'react-redux';
+import { editProfile, getProfile } from '../../redux/actions';
 
 
 const ProfileScreen = (props) => {
 
+  const [name, setName] = useState('')
+  const [bio, setBio] = useState('')
+
+  const uid = '9t6MMNm9Q1TCQV8Q0VRktWFVXu32'
+
+  useEffect(() => {
+      props.getProfile(uid);
+  }, []);
+
     const [val, setVal] = useState(1);
-  
+
     function renderElement() {
         //You can add N number of Views here in if-else condition
         if (val === 1) {
@@ -40,11 +52,11 @@ const ProfileScreen = (props) => {
 
                     <View style={{ flex: 0.8, alignItems: 'center', marginBottom: 5 }}>
                         <Image style={{ borderWidth: 0.5, borderColor: 'white', height: 80, width: 80, borderRadius: 55, marginBottom: 10 }}></Image>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#f5f5f5' }}>Şamil Akpınar</Text>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#f5f5f5' }}>{name}</Text>
                         <View style={{ marginLeft: 130, marginTop: 10, marginRight: 130 }}>
-                            <Text style={{ color: 'white' }}>Kişi Bilgisi yazılacak</Text>
-                            <Text style={{ color: 'white' }}>Kişi Bilgisi yazılacak</Text>
-                            
+                            <Text style={{ color: 'white' }}>{bio}</Text>
+
+
 
 
 
@@ -87,14 +99,14 @@ const ProfileScreen = (props) => {
 
 
 
-               <View style={{ flex: 1.1, backgroundColor: '#ffffff', marginBottom: 10 }}> 
+               <View style={{ flex: 1.1, backgroundColor: '#ffffff', marginBottom: 10 }}>
 
 
                     <View style={styles.container}>
 
 
 
-                        {/*View to hold the child screens 
+                        {/*View to hold the child screens
         which can be changed on the click of a button*/}
                         <View style={{ flex:1, backgroundColor: '#ffffff' }}>
                             {renderElement()}
@@ -126,4 +138,9 @@ const styles = StyleSheet.create({
 
 });
 
-export default ProfileScreen;
+const mapStateToProps = ({ profileResponse }) => {
+  const { profile, loading } = profileResponse;
+  return { profile, loading };
+};
+
+export default connect(mapStateToProps, { getProfile })(ProfileScreen);

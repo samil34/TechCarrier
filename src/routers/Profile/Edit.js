@@ -1,15 +1,27 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Image, ScrollView, SafeAreaView, TouchableOpacity, Picker, TextInput } from 'react-native';
 
+import { connect } from 'react-redux';
+import { editProfile, getProfile } from '../../redux/actions';
 
 
-const 
- Edit = (props) => {
+const Edit = (props) => {
 
-    const [cinsiyet, setCinsiyet] = useState('Erkek')
+ const uid = '9t6MMNm9Q1TCQV8Q0VRktWFVXu32'
 
+  useEffect(() => {
+      props.getProfile(uid);
+  }, []);
 
+  console.log(props.profile)
+
+    const [cinsiyet, setCinsiyet] = useState('')
+    const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
+    const [bio, setBio] = useState('')
+    const [tel, setTel] = useState('')
+    const [profilePic, setProfilepic] = useState('')
 
     return (
 
@@ -24,7 +36,11 @@ const
 
                         <Text onPress={() => { props.navigation.navigate('ProfileScreen') }} style={{ color: 'white', fontSize: 15 }}>İptal</Text>
                         <Text style={{ color: 'white', fontSize: 15 }}> Profil Düzenle  </Text>
-                        <Text onPress={() => { }} style={{ color: 'white', fontSize: 15 }}>Kaydet</Text>
+                        <Text onPress={() => {
+                          const params = { uid, cinsiyet, bio, name, username, tel, profilePic }
+                          props.editProfile(params)
+                        }}
+                              style={{ color: 'white', fontSize: 15 }}>Kaydet</Text>
 
                     </View>
 
@@ -52,7 +68,12 @@ const
 
 
                         <View style={{ borderBottomWidth: 0.5, height: 45, width: '50%', justifyContent: 'center' }}>
-                            <TextInput>Şamil Akpınr</TextInput>
+                            <TextInput
+                            value={name}
+                              autoFocus
+                              placeholder='Ad-Soyad'
+                              onChangeText={(name) => setName(name)}
+                            />
                         </View>
 
                     </View>
@@ -60,40 +81,39 @@ const
                     <View style={{ flexDirection: 'row' }}>
 
                         <View style={{ height: 45, width: '25%', justifyContent: 'center', marginLeft: 5 }}>
-                            <Text>Kullanıcı</Text>
-                            <Text>adı</Text>
+                            <Text>Kullanıcı Adi</Text>
                         </View>
 
 
 
                         <View style={{ borderBottomWidth: 0.5, height: 45, width: '50%', marginBottom: 10 }}>
-                            <TextInput>samil_akpinar</TextInput>
+                            <TextInput
+                            value={username}
+                              autoFocus
+                              placeholder="Kullanici Adi"
+                              onChangeText={(username) => setUsername(username)}
+                            />
                         </View>
 
                     </View>
-                    <TouchableOpacity
+                    <View style={{ flexDirection: 'row' }}>
 
-                        onPress={() => { props.navigation.navigate('Biyografi') }}
-                    >
-
-
-
-                        <View style={{ flexDirection: 'row' }}>
-
-                            <View style={{ height: 45, width: '25%', justifyContent: 'center' }}>
-                                <Text style={{ marginLeft: 5 }}>Biyografi</Text>
-
-                            </View>
-
-
-
-                            <View style={{ height: 45, width: '50%', marginBottom: 15 }}>
-                                <Text></Text>
-
-                            </View>
+                        <View style={{ height: 45, width: '25%', justifyContent: 'center', marginLeft: 5 }}>
+                            <Text>Bio</Text>
                         </View>
 
-                    </TouchableOpacity>
+
+
+                        <View style={{ borderBottomWidth: 0.5, height: 45, width: '50%', marginBottom: 10 }}>
+                            <TextInput
+                            value={bio}
+                              autoFocus
+                              placeholder="Bio"
+                              onChangeText={(bio) => setBio(bio)}
+                            />
+                        </View>
+
+                    </View>
 
 
                     <View style={{ flex: 0.3, flexDirection: 'row', marginTop: 10 }}>
@@ -105,19 +125,7 @@ const
 
                     </View>
 
-                    <View style={{ flexDirection: 'row' }}>
 
-                        <View style={{ height: 45, width: '25%', justifyContent: 'center' }}>
-                            <Text style={{ marginLeft: 5 }}>E-posta</Text>
-                        </View>
-
-
-
-                        <View style={{ borderBottomWidth: 0.5, height: 45, width: '50%', justifyContent: 'center' }}>
-                            <TextInput >samil5807@gmail.com</TextInput>
-                        </View>
-
-                    </View>
                     <View style={{ flexDirection: 'row' }}>
 
                         <View style={{ height: 45, width: '25%', justifyContent: 'center' }}>
@@ -127,7 +135,12 @@ const
 
 
                         <View style={{ borderBottomWidth: 0.5, height: 45, width: '50%', justifyContent: 'center' }}>
-                            <TextInput >05334564407</TextInput>
+                        <TextInput
+                        value={tel}
+                          autoFocus
+                          placeholder="Telefon"
+                          onChangeText={(tel) => setTel(tel)}
+                        />
                         </View>
 
                     </View>
@@ -144,14 +157,14 @@ const
                             , height: 45, width: '50%', justifyContent: 'center'
                         }}>
                             <Picker
-                                selectedValue={cinsiyet}
+                              selectedValue={cinsiyet}
                                 style={{ width: 145 }}
-                                onValueChange={(cinsiyet, itemIndex) => setCinsiyet(cinsiyet)}
+                                onValueChange={(itemValue, itemIndex) => setCinsiyet(itemValue)}
                             >
-                                <Picker.Item label="Erkek" value="Erkek" />
-                                <Picker.Item label="Kadın" value="Kadın" />
-                                <Picker.Item label="Özel" value="Özel" />
-                                <Picker.Item label="Söylememeyi Tercih Ederim" value="Söylememeyi Tercih Ederim" />
+                                <Picker.Item label="Erkek" value="erkek" />
+                                <Picker.Item label="Kadın" value="kadin" />
+                                <Picker.Item label="Özel" value="other" />
+                                <Picker.Item label="Söylememeyi Tercih Ederim" value="private" />
                             </Picker>
                         </View>
 
@@ -168,4 +181,9 @@ const
     );
 }
 
-export default Edit;
+const mapStateToProps = ({ profileResponse }) => {
+  const { profile, loading } = profileResponse;
+  return { profile, loading };
+};
+
+export default connect(mapStateToProps, { editProfile, getProfile })(Edit);
