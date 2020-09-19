@@ -12,6 +12,7 @@ import { colors } from '../src/style'
 
 //-------> SCREENS <-------\\
 import LoadingScreen from '../src/routers/Loading/LoadingScreen';
+import SignOut from '../src/routers/Auth/SignOut';
 import FirstScreen from '../src/routers/Auth/FirstScreen';
 import SplashScreen from '../src/routers/Splash'
 import LoginScreen from '../src/routers/Auth/LoginScreen';
@@ -58,11 +59,8 @@ const menu = (navigation) => {
         marginLeft: 10
       }}
     >
-      <View style={{ borderWidth: 0.2, width: 40, height: 40, borderRadius: 25, justifyContent: 'center', alignItems: 'center' }}>
-        <Image
-          source={require('./img/foto.png')}
-          style={{ width: 40, height: 40, borderRadius: 25 }}
-        />
+      <View style={{ width: 40, height: 40, borderRadius: 25, justifyContent: 'center', alignItems: 'center' }}>
+        <Icon name='user' type='FontAwesome' />
       </View>
 
 
@@ -137,6 +135,20 @@ const AuthStackScreen = () => {
     </AuthStack.Navigator>
   )
 }
+
+
+const SignOutStack = createStackNavigator();
+const SignOutStackScreen = () => {
+  return (
+    <SignOutStack.Navigator>
+      <SignOutStack.Screen
+        name="SignOut"
+        component={SignOut}
+     />
+    </SignOutStack.Navigator>
+
+  );
+};
 
 const ProfileStack = createStackNavigator();
 const ProfileStackScreen = () => {
@@ -380,6 +392,7 @@ const DrawerStackScreen = () => {
     >
       <DrawerStack.Screen name="TechCarier" component={TabStackScreen} />
       <DrawerStack.Screen name="ProfileStackScreen" component={ProfileStackScreen} />
+      <DrawerStack.Screen name="SignOutStackScreen" component={SignOutStackScreen} />
     </DrawerStack.Navigator>
 
 

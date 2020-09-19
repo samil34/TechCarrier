@@ -88,7 +88,7 @@ const HomeScreen = (props) => {
                 style={{ flex: 1 }}
                 data={props.list}
                 renderItem={renderItem}
-                keyExtractor={item => item._id}
+                keyExtractor={item => item.link}
                 ListEmptyComponent={() => {
                     return (
                         <View style={{

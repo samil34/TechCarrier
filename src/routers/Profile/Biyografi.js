@@ -3,8 +3,6 @@ import { Text, View, TextInput } from 'react-native';
 
 const UselessTextInput = (props) => {
  
-    console.log('değerler : ', props.value);
-
     return (
         <TextInput
         style={{fontSize:16}}
@@ -12,7 +10,7 @@ const UselessTextInput = (props) => {
             editable
             autoFocus
             maxLength={100}
-            
+
         />
     );
 }
@@ -28,19 +26,19 @@ const Biyografi = (props) => {
                 backgroundColor: '#f5f5f5',
                 borderBottomColor: '#000000',
                 borderBottomWidth: 0.5,
-                
+
             }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 15, borderColor: 'gray', borderBottomWidth:0.5,backgroundColor:'#f5f5f5' }}>
 
                 <Text onPress={() => { props.navigation.push('Edit') }} style={{ color: 'black', fontSize: 15 }}>İptal</Text>
                 <Text style={{ color: 'black', fontSize: 15 }}> Biyografi  </Text>
-                <Text 
+                <Text
                 onPress={() => {
                    // const params = {biyo}
                    // props.(params)
-                 }} 
-                 style={{ 
-                     color: 'black', 
+                 }}
+                 style={{
+                     color: 'black',
                      fontSize: 15
                       }}>Kaydet</Text>
 
@@ -51,7 +49,7 @@ const Biyografi = (props) => {
 
             style= {{marginLeft: 10,fontSize:15}}
                 multiline
-                
+
                 numberOfLines={5}
                 onChangeText={(biyo) => setBiyo(biyo)}
                 value={biyo}

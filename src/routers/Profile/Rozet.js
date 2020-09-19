@@ -12,56 +12,56 @@ const Data = [
       "id":"1",
       "dsc":"Burada Yeni",
       "badge":require( '../../img/start2.png' )
-      
+
   },
   {
     "id":"2",
     "dsc":"Paylaşımcı",
     "badge":require( '../../img/begen.png' )
-    
+
 },
   {
       "id":"3",
       "dsc":"Girişimci",
       "badge":require( '../../img/girisim1.png' )
-      
+
   },
   {
       "id":"4",
       "dsc":"Teknoloji Sever",
       "badge":require( '../../img/tech5png.png' )
 
-  },  
+  },
   {
       "id":"5",
       "dsc":"Kariyer Sahibi",
       "badge":require( '../../img/carriers.png' )
-      
+
   },
   {
       "id":"6",
       "dsc":"Beğenilen",
       "badge":require( '../../img/begen.jpg' )
-     
+
   },
   {
       "id":"7",
       "dsc":"Kurs Bulucu",
       "badge":require( '../../img/tech5png.png' )
-    
+
   },
   {
       "id":"8",
       "dsc":"Mentor",
       "badge":require( '../../img/tech5png.png' )
-      
+
   },
   {
       "id":"9",
       "dsc":"Sektörde Pro",
       "badge":require( '../../img/tech5png.png' )
-    
-      
+
+
   }
 ];
 
@@ -70,24 +70,23 @@ const Data = [
 
 const renderItem = ({ item }, props) => {
 
-   console.log('item içindekiler: ', typeof(item.badge))
    return(
  <View
         style={{ marginLeft: 15, marginRight: 15, marginTop: 15, flexDirection: 'row', alignItems: 'center' }}
-       
+
         >
         <View style={{   width: 50, height: 50, borderRadius: 25, backgroundColor:'', justifyContent:'center', alignItems:'center'}}>
-        
-        <Image 
-           
+
+        <Image
+
            source={item.badge}
            style={{width:36,height:36}}
            />
 
         </View>
-         
+
  <Text style={{ marginLeft: 10, marginRight: 50 }}>{item.dsc}</Text>
- 
+
       </View>
    )
 };
@@ -95,24 +94,24 @@ const renderItem = ({ item }, props) => {
 
 
     const Rozet = (props) => {
- 
-  
-  
+
+
+
     return (
-      
-        
+
+
         <View style={{ flex: 1, backgroundColor: '#ffffff', marginBottom: 5 }}>
-    
-     
+
+
 
         <FlatList
-        
-          
+
+
             style={{ flex: 1 }}
             data={Data}
             renderItem={(item) => renderItem(item, props)}
-        
-            keyExtractor={item => item.dsc
+
+            keyExtractor={item => item.id
             }
             ListEmptyComponent={() => {
                 return (
@@ -131,14 +130,14 @@ const renderItem = ({ item }, props) => {
                 )
             }}
         />
-        
+
         </View>
 
-     
-     
-     
+
+
+
     );
-  
+
 }
 
 export default Rozet;
