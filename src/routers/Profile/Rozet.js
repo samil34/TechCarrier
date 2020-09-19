@@ -29,37 +29,37 @@ const Data = [
   {
       "id":"4",
       "dsc":"Teknoloji Sever",
-      "badge":require( '../../img/tech5png.png' )
+      "badge":require( '../../img/innovation.png' )
 
   },  
   {
       "id":"5",
       "dsc":"Kariyer Sahibi",
-      "badge":require( '../../img/carriers.png' )
+      "badge":require( '../../img/kariyer.png' )
       
   },
   {
       "id":"6",
       "dsc":"Beğenilen",
-      "badge":require( '../../img/begen.jpg' )
+      "badge":require( '../../img/begeniler.png' )
      
   },
   {
       "id":"7",
       "dsc":"Kurs Bulucu",
-      "badge":require( '../../img/tech5png.png' )
+      "badge":require( '../../img/bulucu.png' )
     
   },
   {
       "id":"8",
       "dsc":"Mentor",
-      "badge":require( '../../img/tech5png.png' )
+      "badge":require( '../../img/mentor.png' )
       
   },
   {
       "id":"9",
       "dsc":"Sektörde Pro",
-      "badge":require( '../../img/tech5png.png' )
+      "badge":require( '../../img/sektordepro.png' )
     
       
   }
