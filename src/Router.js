@@ -60,7 +60,7 @@ const menu = (navigation) => {
       }}
     >
       <View style={{ width: 40, height: 40, borderRadius: 25, justifyContent: 'center', alignItems: 'center' }}>
-        <Icon name='user' type='FontAwesome' />
+        <Icon name='bars' type='FontAwesome' />
       </View>
 
 
