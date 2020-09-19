@@ -51,7 +51,7 @@ const AskedQuestions = (props) => {
 
                 <Text style={{ marginBottom: 5, fontSize: 20, fontWeight: 'bold' }}>Ücretsiz Dersler Nedir?</Text>
                 <Text style={{ marginBottom: 20, fontSize: 15 }}>Kişiler udemy, coursera, kodluyoruz vb gibi sitelerdeki
-                kampanyaları, indirimleri burada paylaşarak kullanıcılara
+                dersleri, bootcampleri, kampanyaları veya indirimleri burada paylaşarak kullanıcılara
  bilgi vermesi sağlanacaktır. </Text>
             </View>
 

@@ -23,7 +23,7 @@ import OnlineCourse from '../src/routers/Home/OnlineCourse';
 import CourseSubmit from '../src/routers/Submit/CourseSubmit';
 
 import ProfileScreen from '../src/routers/Profile/ProfileScreen';
-import Settings from '../src/routers/Profile/Settings';
+//import Settings from '../src/routers/Profile/Settings';
 import Edit from '../src/routers/Profile/Edit';
 import Biyografi from '../src/routers/Profile/Biyografi';
 
@@ -35,16 +35,16 @@ import Search from '../src/routers/Search/Search';
 import FreeLessons from '../src/routers/Home/FreeLessons';
 import LessonsSubmit from '../src/routers/Submit/LessonsSubmit';
 import SearchCategory from '../src/routers/Search/SearchCategory';
-import DetailScreen from '../src/routers/Profile/DetailScreen';
+//import DetailScreen from '../src/routers/Profile/DetailScreen';
 import Gonderiler from '../src/routers/Profile/Gonderiler';
 
 import Rozet from '../src/routers/Profile/Rozet';
 import Kaydedilenler from '../src/routers/Profile/Kaydedilenler';
 
-import OnlineCourses from '../src/routers/OnlineCourses/OnlineCourses'
-import RequestAndSuggestions from '../src/routers/RequestAndSuggestions/RequestAndSuggestion';
+//import OnlineCourses from '../src/routers/OnlineCourses/OnlineCourses'
+//import RequestAndSuggestions from '../src/routers/RequestAndSuggestions/RequestAndSuggestion';
 import AskedQuestions from '../src/routers/AskedQuestions/AskedQuestions';
-import HelpCenter from '../src/routers/HelpCenter/HelpCenter';
+//import HelpCenter from '../src/routers/HelpCenter/HelpCenter';
 import Menu from '../src/routers/Menu/Menu';
 
 

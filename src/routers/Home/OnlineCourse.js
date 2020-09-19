@@ -72,7 +72,6 @@ const OnlineCourse = (props) => {
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
               <Text>{/*item.likes.length*/}</Text>
-              <Text>{/*item.comments.length*/} Yorum</Text>
           </View>
 
           <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
