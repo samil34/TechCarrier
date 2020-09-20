@@ -29,7 +29,7 @@ const FreeLessons = (props) => {
                   >
 
                       <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
-                          <Text>foto</Text>
+                          <Text></Text>
                       </View>
 
 
@@ -41,7 +41,10 @@ const FreeLessons = (props) => {
 
 
               </View>
-
+       
+              <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 10, backgroundColor: '#a9d1f1', width: '25%', justifyContent: 'center', alignItems: 'center' }}>
+                     <Text>{item.category}</Text>
+                    </View>
 
 
           </View>

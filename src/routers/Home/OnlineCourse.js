@@ -29,7 +29,7 @@ const OnlineCourse = (props) => {
                   >
 
                       <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
-                          <Text>foto</Text>
+                          <Text></Text>
                       </View>
 
 
@@ -72,7 +72,7 @@ const OnlineCourse = (props) => {
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
               <Text>{/*item.likes.length*/}</Text>
-              <Text>{/*item.comments.length*/} Yorum</Text>
+              
           </View>
 
           <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>

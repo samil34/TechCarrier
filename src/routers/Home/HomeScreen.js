@@ -29,7 +29,7 @@ const HomeScreen = (props) => {
                         >
 
                             <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
-                                <Text>foto</Text>
+                                <Text></Text>
                             </View>
 
 

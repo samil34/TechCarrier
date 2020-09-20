@@ -9,17 +9,17 @@ const DATA = [
     {
         user: { name: 'Şamil Akpınar', rozet: 'Yeni' },
         date: '1 sa',
-        category: 'Yapay Zeka ',
-        aciklama: 'Kurslar hakkında bilgi',
+        category: 'Teknoloji',
+        aciklama: 'Blokzinciri şirketlerine yatırım yapan en büyük kuruluşlardan biri olan Digital Currency Group (DCG), İngiliz kripto para borsası Luno’yu bünyesine kattığını açıkladı. (Kripto Küratör içeriği)',
         link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
         likes: ["eren", "onur", "mukaddes"],
         comments: ["samil", "mukaddes", "onur", "ali", "veli"]
     },
     {
-        user: { name: 'Eren ', rozet: 'Yeni' },
+        user: { name: 'Eren Tanrıverdioğlu', rozet: 'Yeni' },
         date: '12 sa',
-        category: 'React-native  ',
-        aciklama: 'kurs için bilgi ',
+        category: 'Teknoloji',
+        aciklama: 'Irvine merkezli oyun makineleri ve oyun çevre birimleri üreten oyun şirketi Razer, dünya çapındaki profesyonel ve sıradan oyuncuların odaklanma ve tepki sürelerini iyileştirmek için bir sakız üretti. ',
         link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
         likes: ["eren", "onur", "mukaddes"],
         comments: ["samil", "mukaddes", "onur", "ali"]
@@ -40,7 +40,7 @@ const renderItem = ({ item },props) => (
                  >
 
                     <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
-                        <Text>foto</Text>
+                        
                     </View>
 
 
@@ -83,12 +83,12 @@ const renderItem = ({ item },props) => (
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
             <Text>{item.likes.length}</Text>
-            <Text>{item.comments.length} Yorum</Text>
+           
         </View>
 
         <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
             <Text>Beğen </Text>
-            <Text>Yorum yap</Text>
+            
             <Text>Kaydet</Text>
         </View>
 

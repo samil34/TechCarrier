@@ -45,7 +45,9 @@ const Edit = (props) => {
                     </View>
 
                     <View style={{ flex: 0.3, alignItems: 'center', marginTop: 25, marginBottom: 20 }}>
-                        <Image style={{ borderWidth: 0.4, borderColor: 'white', height: 90, width: 90, borderRadius: 65, marginBottom: 10 }}></Image>
+                        <Image 
+                        source = {require('../../img/foto.png')}
+                        style={{ borderWidth: 0.4, borderColor: 'white', height: 90, width: 90, borderRadius: 65, marginBottom: 10 }}></Image>
                         <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}>Profil Fotoğrafını Değiştir</Text>
                     </View>
 

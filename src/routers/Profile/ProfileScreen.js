@@ -50,7 +50,10 @@ const ProfileScreen = (props) => {
                   </View>
 
                   <View style={{ flex: 0.8, alignItems: 'center', marginBottom: 5 }}>
-                      <Image style={{ borderWidth: 0.5, borderColor: 'white', height: 80, width: 80, borderRadius: 55, marginBottom: 10 }}></Image>
+                      <Image 
+                      
+                      source = {require('../../img/foto.png')}
+                      style={{ borderWidth: 0.5, borderColor: 'white', height: 80, width: 80, borderRadius: 55, marginBottom: 10 }}></Image>
                       <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#f5f5f5' }}>{props.profile.name}</Text>
                       <View style={{ marginLeft: 130, marginTop: 10, marginRight: 130 }}>
                           <Text style={{ color: 'white' }}>{props.profile.bio}</Text>
@@ -68,7 +71,7 @@ const ProfileScreen = (props) => {
                           style={{ marginLeft: 35, alignItems: 'center' }}
                           onPress={() => setVal(1)}
                       >
-                          <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }} >15</Text>
+                          <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }} >5</Text>
                           <Text style={{ fontSize: 15, color: 'white' }} >Gönderiler</Text>
 
                       </TouchableOpacity>
@@ -76,7 +79,7 @@ const ProfileScreen = (props) => {
                           style={{ alignItems: 'center' }}
                           onPress={() => setVal(2)}
                       >
-                          <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }} >15</Text>
+                          <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }} >3</Text>
                           <Text style={{ fontSize: 15, color: 'white' }} >Kaydedilenler</Text>
                       </TouchableOpacity>
 
@@ -84,7 +87,7 @@ const ProfileScreen = (props) => {
                           style={{ marginRight: 35, alignItems: 'center' }}
                           onPress={() => setVal(3)}
                       >
-                          <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>Yeni</Text>
+                          <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>Burada Yeni</Text>
                           <Text style={{ fontSize: 15, color: 'white' }}>Rozet</Text>
                       </TouchableOpacity>
 

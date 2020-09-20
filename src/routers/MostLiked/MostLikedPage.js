@@ -10,7 +10,7 @@ const DATA = [
         user: { name: 'Şamil Akpınar', rozet: 'Yeni' },
         date: '1 sa',
         category: 'Yapay Zeka ',
-        aciklama: 'Kurslar hakkında bilgi',
+        aciklama: 'Öğrenciler, kampüs deneyimini ileri götürmeyi amaçlayan fikir ve projelerini anlatan bir dakikalık video ile redbullbasement.com adresinden 25 Ekim 2020‘ye kadar başvuru yapabiliyor. ',
         link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
         likes: ["eren", "onur", "mukaddes"],
         comments: ["samil", "mukaddes", "onur", "ali", "veli"]
@@ -18,8 +18,8 @@ const DATA = [
     {
         user: { name: 'Eren ', rozet: 'Yeni' },
         date: '12 sa',
-        category: 'React-native  ',
-        aciklama: 'kurs için bilgi ',
+        category: 'Teknoloji  ',
+        aciklama: 'Oluşturduğu modelin denemesini önce kitap kategorisi ile yapan Barty, aldığı yatırım ile birlikte ürün yelpazesini elektronikten hobi, oyun, müzik eşyalarına; spor aletlerinden bebek ürünlerine 18 farklı kategoriye çıkartmayı hedefliyor. Ayrıca bu yeni süreçle birlikte de Bartme olan adlarını Barty olarak değiştirdiler.',
         link: 'https://www.musicbusinessworldwide.com/spotify-heading-towards-a-50bn-market-cap-is-worth-double-what-it-was-just-3-months-ago/',
         likes: ["eren", "onur", "mukaddes"],
         comments: ["samil", "mukaddes", "onur", "ali"]
@@ -37,7 +37,7 @@ const renderItem = ({ item }) => (
                 <TouchableOpacity style={{ flexDirection: 'row' }}>
 
                     <View style={{ borderWidth: 0.6, marginVertical: 2, marginHorizontal: 1, padding: 5, borderRadius: 25, backgroundColor: 'white', width: '25%', justifyContent: 'center', alignItems: 'center', height: 50, width: 50 }}>
-                        <Text>foto</Text>
+                        
                     </View>
 
 
@@ -80,12 +80,12 @@ const renderItem = ({ item }) => (
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
             <Text>{item.likes.length}</Text>
-            <Text>{item.comments.length} Yorum</Text>
+            
         </View>
 
         <View style={{ borderTopWidth: 0.5, flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
             <Text>Beğen </Text>
-            <Text>Yorum yap</Text>
+            
             <Text>Kaydet</Text>
         </View>
 
